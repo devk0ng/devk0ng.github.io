@@ -3,14 +3,49 @@
 
 
     <url>
-        <loc>https://devk0ng.github.io/tags/entity/</loc>
-        <lastmod>2021-07-28T15:53:22.666Z</lastmod>
+        <loc>https://devk0ng.github.io/tags/orm/</loc>
+        <lastmod>2021-07-29T16:55:31.090Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://devk0ng.github.io/tags/jpa/</loc>
+        <lastmod>2021-07-29T16:55:31.090Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/lombok/</loc>
+        <lastmod>2021-07-29T16:42:33.478Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/spring/</loc>
+        <lastmod>2021-07-29T16:42:33.478Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/solid/</loc>
+        <lastmod>2021-07-29T16:34:38.683Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/polymorphism/</loc>
+        <lastmod>2021-07-29T16:34:38.683Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/entity/</loc>
         <lastmod>2021-07-28T15:53:22.666Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -73,13 +108,6 @@
     </url>
 
     <url>
-        <loc>https://devk0ng.github.io/tags/orm/</loc>
-        <lastmod>2021-07-28T13:44:49.978Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://devk0ng.github.io/tags/api-gateway/</loc>
         <lastmod>2021-07-28T13:29:59.041Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -89,27 +117,6 @@
     <url>
         <loc>https://devk0ng.github.io/tags/gateway/</loc>
         <lastmod>2021-07-28T13:29:59.041Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://devk0ng.github.io/tags/spring/</loc>
-        <lastmod>2021-07-27T16:29:18.779Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://devk0ng.github.io/tags/solid/</loc>
-        <lastmod>2021-07-27T16:29:18.779Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://devk0ng.github.io/tags/polymorphism/</loc>
-        <lastmod>2021-07-27T16:29:18.779Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

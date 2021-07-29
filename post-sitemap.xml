@@ -9,6 +9,30 @@
 
 
     <url>
+        <loc>https://devk0ng.github.io/2021/07/30/jpa_key_mapping/</loc>
+        <lastmod>2021-07-29T16:55:31.090Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/2021/07/30/lombok/</loc>
+        <lastmod>2021-07-29T16:42:33.478Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/2021/07/27/polymorphism_and_solid_and_spring/</loc>
+        <lastmod>2021-07-29T16:34:38.683Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://devk0ng.github.io/2021/07/27/entity-mapping/</loc>
         <lastmod>2021-07-28T15:53:22.666Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -51,14 +75,6 @@
     <url>
         <loc>https://devk0ng.github.io/2021/07/27/msa-and-api_gateway/</loc>
         <lastmod>2021-07-28T13:29:59.041Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://devk0ng.github.io/2021/07/27/polymorphism_and_solid_and_spring/</loc>
-        <lastmod>2021-07-27T16:29:18.779Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

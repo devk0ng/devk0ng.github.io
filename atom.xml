@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-07-28T15:53:22.666Z</updated>
+  <updated>2021-07-29T16:55:31.090Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JPA와 기본 키 매핑에 관하여</title>
+    <link href="https://devk0ng.github.io/2021/07/30/jpa_key_mapping/"/>
+    <id>https://devk0ng.github.io/2021/07/30/jpa_key_mapping/</id>
+    <published>2021-07-29T16:53:26.359Z</published>
+    <updated>2021-07-29T16:55:31.090Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;JPA-기본-키-매핑&quot;&gt;&lt;a href=&quot;#JPA-기본-키-매핑&quot; class=&quot;headerlink&quot; title=&quot;JPA 기본 키 매핑&quot;&gt;&lt;/a&gt;JPA 기본 키 매핑&lt;/h1&gt;&lt;p&gt;기본키를 매핑하려면 @Id 어노테이션을 필드위에 선언해주면 돼!!&lt;/p&gt;
+&lt;p&gt;추가적으로 @GeneratedValue라는 어노테이션과 함께 많이 사용하는데 이 어노테이션에 대해 알아보자!!&lt;/p&gt;
+&lt;p&gt;먼저 기본 키 매핑 방법에는 두가지가 있어!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;직접할당과 자동생성&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/categories/jpa/"/>
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/tags/jpa/"/>
+    
+    <category term="orm" scheme="https://devk0ng.github.io/tags/orm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>자주 사용되는 lombok, 주의 사항</title>
+    <link href="https://devk0ng.github.io/2021/07/30/lombok/"/>
+    <id>https://devk0ng.github.io/2021/07/30/lombok/</id>
+    <published>2021-07-29T16:40:55.964Z</published>
+    <updated>2021-07-29T16:42:33.478Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Getter-Setter&quot;&gt;&lt;a href=&quot;#Getter-Setter&quot; class=&quot;headerlink&quot; title=&quot;@Getter, @Setter&quot;&gt;&lt;/a&gt;@Getter, @Setter&lt;/h2&gt;&lt;p&gt;: 말그대로 getter, setter method를 생성해주는 놈이야!&lt;/p&gt;
+&lt;p&gt;AccessLevel을 명시해줌으로써 접근제한자를 지정 해 줄 수 있어.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="spring" scheme="https://devk0ng.github.io/categories/spring/"/>
+    
+    
+    <category term="spring" scheme="https://devk0ng.github.io/tags/spring/"/>
+    
+    <category term="lombok" scheme="https://devk0ng.github.io/tags/lombok/"/>
+    
+  </entry>
   
   <entry>
     <title>앤티티 매핑(매핑 어노테이션 정리) 정리</title>
@@ -101,7 +147,7 @@
     <link href="https://devk0ng.github.io/2021/07/27/polymorphism_and_solid_and_spring/"/>
     <id>https://devk0ng.github.io/2021/07/27/polymorphism_and_solid_and_spring/</id>
     <published>2021-07-26T15:49:09.663Z</published>
-    <updated>2021-07-27T16:29:18.779Z</updated>
+    <updated>2021-07-29T16:34:38.683Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;다형성-Polymorphism&quot;&gt;&lt;a href=&quot;#다형성-Polymorphism&quot; class=&quot;headerlink&quot; title=&quot;다형성(Polymorphism)&quot;&gt;&lt;/a&gt;다형성(Polymorphism)&lt;/h1&gt;&lt;br/&gt;
@@ -113,7 +159,7 @@
     
     
     
-    <category term="jpa" scheme="https://devk0ng.github.io/categories/jpa/"/>
+    <category term="spring" scheme="https://devk0ng.github.io/categories/spring/"/>
     
     
     <category term="polymorphism" scheme="https://devk0ng.github.io/tags/polymorphism/"/>
