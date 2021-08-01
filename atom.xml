@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-07-29T16:55:31.090Z</updated>
+  <updated>2021-08-01T16:52:10.625Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JPA 연관관계 매핑에 대해 알아보자</title>
+    <link href="https://devk0ng.github.io/2021/08/02/jpa_relation_mapping/"/>
+    <id>https://devk0ng.github.io/2021/08/02/jpa_relation_mapping/</id>
+    <published>2021-08-01T16:47:18.961Z</published>
+    <updated>2021-08-01T16:52:10.625Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;연관관계-용어정리와-간단한-설명&quot;&gt;&lt;a href=&quot;#연관관계-용어정리와-간단한-설명&quot; class=&quot;headerlink&quot; title=&quot;연관관계 용어정리와 간단한 설명&quot;&gt;&lt;/a&gt;연관관계 용어정리와 간단한 설명&lt;/h2&gt;&lt;p&gt;연관관계 매핑을 알아보기에 앞서 기본적인 용어를 정리하고 들어간당&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;방향 - 단방향, 양방향&lt;/li&gt;
+&lt;li&gt;다중성 - 다대일, 일대다, 일대일, 다대다&lt;/li&gt;
+&lt;li&gt;연관관계의 주인 - 양방향 관계에서는 연관관계 주인이라는 것을 설정해줘야해!! 중요!!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+
+&lt;h3 id=&quot;방향-별-사용방법&quot;&gt;&lt;a href=&quot;#방향-별-사용방법&quot; class=&quot;headerlink&quot; title=&quot;방향 별 사용방법&quot;&gt;&lt;/a&gt;방향 별 사용방법&lt;/h3&gt;&lt;p&gt;단뱡향은 그냥 @OneToMany, @ManyToOne … 등 관계를 나타내는 어노테이션과 @JoinColumn(name = “blabla”) 를 통해 외래키를 매핑해주고 그냥 사용하면 돼!!&lt;/p&gt;
+&lt;p&gt;but, &lt;strong&gt;양방향의 경우에는 두 관계중 연관관계의 주인을 결정해 줘야해!!&lt;/strong&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/categories/jpa/"/>
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/tags/jpa/"/>
+    
+    <category term="orm" scheme="https://devk0ng.github.io/tags/orm/"/>
+    
+  </entry>
   
   <entry>
     <title>JPA와 기본 키 매핑에 관하여</title>

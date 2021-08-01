@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="JPA 연관관계 매핑에 대해 알아보자"><meta name="keywords" content="jpa,orm"><meta name="author" content="Sungbin Hong"><meta name="copyright" content="Sungbin Hong"><title>JPA 연관관계 매핑에 대해 알아보자 | devk0ng's blog</title><link rel="shortcut icon" href="/img/icon2.png"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="canonical" href="https://devk0ng.github.io/2021/08/02/jpa_relation_mapping/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"LK74G203SS","apiKey":"82b60d701a0005a22c7f6e2476b74ac1","indexName":"myblog","hits":{"per_page":10},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="devk0ng's blog" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%B0%EA%B4%80%EA%B4%80%EA%B3%84-%EC%9A%A9%EC%96%B4%EC%A0%95%EB%A6%AC%EC%99%80-%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%84%A4%EB%AA%85"><span class="toc-number">1.</span> <span class="toc-text">연관관계 용어정리와 간단한 설명</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%B0%A9%ED%96%A5-%EB%B3%84-%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95"><span class="toc-number">1.1.</span> <span class="toc-text">방향 별 사용방법</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%B0%EA%B4%80%EA%B4%80%EA%B3%84-%EB%A7%A4%ED%95%91%EC%8B%9C-%EA%B3%A0%EB%A0%A4%EC%82%AC%ED%95%AD"><span class="toc-number">2.</span> <span class="toc-text">연관관계 매핑시 고려사항</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8B%A4%EC%A4%91%EC%84%B1"><span class="toc-number">2.1.</span> <span class="toc-text">다중성</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8B%A8%EB%B0%A9%ED%96%A5-%EC%96%91%EB%B0%A9%ED%96%A5"><span class="toc-number">2.2.</span> <span class="toc-text">단방향, 양방향</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8B%A4%EC%A4%91%EC%84%B1%EA%B3%BC-%EB%B0%A9%ED%96%A5%EC%9D%84-%EC%84%A4%EC%A0%95%ED%95%A0-%EB%95%8C-%EA%B3%A0%EB%A0%A4%ED%95%A0-%EA%B2%83"><span class="toc-number">2.3.</span> <span class="toc-text">다중성과 방향을 설정할 때 고려할 것</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%97%B0%EA%B4%80%EA%B4%80%EA%B3%84%EC%9D%98-%EC%A2%85%EB%A5%98"><span class="toc-number">3.</span> <span class="toc-text">연관관계의 종류</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8B%A4%EB%8C%80%EC%9D%BC-N-1-%EB%8B%A8%EB%B0%A9%ED%96%A5"><span class="toc-number">3.1.</span> <span class="toc-text">다대일(N:1) 단방향</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8B%A4%EB%8C%80%EC%9D%BC-N-1-%EC%96%91%EB%B0%A9%ED%96%A5"><span class="toc-number">3.2.</span> <span class="toc-text">다대일(N:1) 양방향</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9D%BC%EB%8C%80%EB%8B%A4-1-N-%EB%8B%A8%EB%B0%A9%ED%96%A5"><span class="toc-number">3.3.</span> <span class="toc-text">일대다(1:N) 단방향</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9D%BC%EB%8C%80%EB%8B%A4-1-N-%EC%96%91%EB%B0%A9%ED%96%A5"><span class="toc-number">3.4.</span> <span class="toc-text">일대다(1:N) 양방향</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%9D%BC%EB%8C%80%EC%9D%BC-%EB%8B%A8-%EC%96%91-%EB%B0%A9%ED%96%A5"><span class="toc-number">3.5.</span> <span class="toc-text">일대일 단&#x2F;양 방향</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EB%8B%A4%EB%8C%80%EB%8B%A4-N-M-%EB%8B%A8-%EC%96%91-%EB%B0%A9%ED%96%A5"><span class="toc-number">3.6.</span> <span class="toc-text">다대다(N:M) 단&#x2F;양 방향</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/icon2.png"></div><div class="author-info__name text-center">Sungbin Hong</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">12</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">20</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">4</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/background2.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">devk0ng's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">JPA 연관관계 매핑에 대해 알아보자</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2021-08-02</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/jpa/">jpa</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="연관관계-용어정리와-간단한-설명"><a href="#연관관계-용어정리와-간단한-설명" class="headerlink" title="연관관계 용어정리와 간단한 설명"></a>연관관계 용어정리와 간단한 설명</h2><p>연관관계 매핑을 알아보기에 앞서 기본적인 용어를 정리하고 들어간당</p>
+<ul>
+<li>방향 - 단방향, 양방향</li>
+<li>다중성 - 다대일, 일대다, 일대일, 다대다</li>
+<li>연관관계의 주인 - 양방향 관계에서는 연관관계 주인이라는 것을 설정해줘야해!! 중요!!</li>
+</ul>
+<br>
+
+<h3 id="방향-별-사용방법"><a href="#방향-별-사용방법" class="headerlink" title="방향 별 사용방법"></a>방향 별 사용방법</h3><p>단뱡향은 그냥 @OneToMany, @ManyToOne … 등 관계를 나타내는 어노테이션과 @JoinColumn(name = “blabla”) 를 통해 외래키를 매핑해주고 그냥 사용하면 돼!!</p>
+<p>but, <strong>양방향의 경우에는 두 관계중 연관관계의 주인을 결정해 줘야해!!</strong></p>
+<span id="more"></span>
+
+<p>연관관계주인은 외래키를 관리하는 놈이라고 생각하면 편할 것 같애.</p>
+<p><strong>연관관계의 주인만이 외래키를 등록, 수정할 수 있으며 주인이 아닌쪽은 읽기만 가능해</strong></p>
+<p>주인이 아닌 쪽에 mappedBy 속성을 통해 주인을 지정해주면 돼.</p>
+<p>🤔🤔🤔 그럼 누구를 주인으로 해야할까? 🤔🤔🤔<br>외래키가 있는 곳을 주인으로 정해!!</p>
+<p>👏👏 양방향 연관관계에서 주의할 것!! 👏👏</p>
+<ul>
+<li><p>순수 객체 상태를 고려해서 항상 양쪽에 값을 설정하자!! 연관관계 편의 메소드를 생성하면 좋아</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Member</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> Team team;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTeam</span><span class="params">(Team team)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="keyword">this</span>.team != <span class="keyword">null</span>) &#123;</span><br><span class="line">			<span class="keyword">this</span>.team.getMembers().remove(<span class="keyword">this</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">this</span>.team = team;</span><br><span class="line">		team.getMembers().add(<span class="keyword">this</span>); <span class="comment">//양방향 셋팅</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 말이야!! if 조건문을 넣은 이유는 뭘까나??</p>
+<p>해당 부분을 체크하지 않을 경우</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//if check문이 없다고 생각하고 아래 코드를 보면</span></span><br><span class="line">member.setTeam(teamA);</span><br><span class="line">member.setTeam(teamB);</span><br><span class="line"></span><br><span class="line">Member findMember = teamA.getMember();</span><br><span class="line">Member findMember = teamB.getMember();</span><br></pre></td></tr></table></figure>
+
+<p>이러한 코드를 생각해 볼때 teamA에도 해당 member가, teamB에도 해당 member가 있는 것으로 나오게 되어버린다. 이러한 부분을 막기위해 추가해준 조건이다 이말이야.</p>
+</li>
+</ul>
+<p>간단히 정리하자면 단방향 매핑만으로 연관관계 매핑은 이미 끝났다고 볼 수 있기에 만약 프로그램에서 역으로 탐색할 로직들이 많이 존재한다면 반대방향 (양방향으로) 매핑도 해준다! 그리고 <strong>양방향의 경우 연관관계의 주인은 외래 키의 위치를 기준으로 정하면 된다!!</strong></p>
+<p>한번 더 간단히 정리하고 가자.</p>
+<p><br><br></p>
+<h2 id="연관관계-매핑시-고려사항"><a href="#연관관계-매핑시-고려사항" class="headerlink" title="연관관계 매핑시 고려사항"></a>연관관계 매핑시 고려사항</h2><br>
+
+<h3 id="다중성"><a href="#다중성" class="headerlink" title="다중성"></a>다중성</h3><ul>
+<li>다대일: @ManyToOne</li>
+<li>일대다: @OneToMany</li>
+<li>일대일: @OneToOne</li>
+<li>다대다: @ManyToMany</li>
+</ul>
+<p>이렇게 4가지 다중성이 존재해. 각각의 다중성 중 어떤 것을 선택하느냐는 DB ERD설계할 때와 마찬가지로 각각의 Entity 입장에서 관계를 정의하면 되는거야.</p>
+<p>한 가지 예를들면, 회원과 이메일 Entity가 존재한다면 한 회원은 여러 Email을 가질 수 있고 여러 Email은 한 회원에 속할 수 있는 것이기에 회원과 이메일은 1:N 관계이고 @OneToMany (회원쪽 r기준에서)로 결정내릴 수가 있는거지.</p>
+<br>
+
+<h3 id="단방향-양방향"><a href="#단방향-양방향" class="headerlink" title="단방향, 양방향"></a>단방향, 양방향</h3><p>사실 단방향은 크게 문제될 것이 없어!! 그럼 뭐시 문제인가??</p>
+<p>양방향 연관관계야!! why?? 이 차이를 좀 알아두고 가야해.</p>
+<p>테이블은 외래 키 하나로 두 테이블이 연관관계를 맺어. 엄밀히 말하면 방향이란 것이 없이 외래키 하나로 두 테이블 모두 접근하는 거지.</p>
+<p>그러나 객체 양방향 관계는 달라. A,B 객체가 양방향 연관관계를 맺고 있다면 엄밀히 말하면 A→B, B→A 이렇게 참조가 두 군데에 있다고 생각할 수 있어.</p>
+<p>이 차이에서 오는 결론은 다음과 같애.</p>
+<p>A→B, B→A 이렇게 두 참조가 있다면 <strong>어떤 참조가 테이블의 외래키를 관리할 것인가??</strong></p>
+<p>그리고 이를 결정해주는 것이 연관관계의 주인이라고 생각하면 되는거야!!</p>
+<p>결과적으로</p>
+<ul>
+<li>연관관계의 주인 : 외래키를 관리하는 참조</li>
+<li>주인의 반대편 : 외래키에 영향을 주지 않으며 그렇기에 단순 조회만 가능해!</li>
+</ul>
+<br>
+
+<h3 id="다중성과-방향을-설정할-때-고려할-것"><a href="#다중성과-방향을-설정할-때-고려할-것" class="headerlink" title="다중성과 방향을 설정할 때 고려할 것"></a>다중성과 방향을 설정할 때 고려할 것</h3><p>다대일 단방향,양방향의 경우 설정하는 데 크게 무리가 없어!! 외래키를 관리하는 쪽이 연관관계의 주인이라 했는데 이 외래키를 관리하는 녀석은 테이블에서 외래키가 위치한 녀석과 매핑되는 엔티티를 하는 것이 좋아!!</p>
+<p>그러나 일대다 단방향 관계를 본다면 단방향이기에 OneToMany의 One 쪽에서 외래키를 관리하는 구조가 되어버리는데 테이블에서는 Many쪽에 외래키가 존재해.</p>
+<p>객체와 테이블의 차이 때문에 반대편 테이블의 외래키를 관리하는 특이한 구조가 되어버리고 이는 추천하지 않는 구조야!!</p>
+<p><strong>→ 일대다 단방향 매핑보다는 다대일 양방향 매핑을 사용하는 것을 권장해!!</strong></p>
+<p>(일대다 양방향의 경우는 공식적으로 존재하지 않을 뿐더러 어떻게 구조를 구현할 수는 있겠으나 다대일 양방향을 사용하는 것이 좋아)</p>
+<p>그럼 각각의 연관관계의 종류에 대해 조금 더 자세히 알아보자</p>
+<p><br><br></p>
+<h2 id="연관관계의-종류"><a href="#연관관계의-종류" class="headerlink" title="연관관계의 종류"></a>연관관계의 종류</h2><br>
+
+<h3 id="다대일-N-1-단방향"><a href="#다대일-N-1-단방향" class="headerlink" title="다대일(N:1) 단방향"></a>다대일(N:1) 단방향</h3><p><img src="https://github.com/namjunemy/TIL/blob/master/Jpa/inflearn/img/09_modeling.png?raw=true"></p>
+<p><strong>가장 많이 사용되고 있는 연관관계야.</strong></p>
+<p>Member 쪽에서 Team 필드를 통해 Member에서 Team으로 참조하는 구조야.</p>
+<p>(단방향이기에 Team에서 Member로 참조하는 것은 현재 구조에선 없지)</p>
+<p>가장 객체적인 설계와 테이블적인 설계의 매핑이 잘 되는 구조라고 볼 수 있지.</p>
+<p>그게 무슨 말이냐??</p>
+<p>현재 테이블의 멤버와 팀의 관계는 N:1이고 그럼 당연히 외래키는 N쪽인 MEMBER TABLE에 존재하겠지. (이건 테이블 설계 상 무조건 이러한 구조를 가져야하는 것이야)</p>
+<p>그리고 객체의 관계를 보았을 때에도 Member에서 Team 필드를 MEMBER TABLE의 외래키와 매핑을 시켜줌으로써 객체에서 외래키를 관리하는 놈(Member)와 실제 테이블 상에서 외래키가 존재하는 놈(MEMBER TABLE)이 매칭이 딱 된다는 말이지!!</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Member</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Id</span> <span class="meta">@GenartedValue</span></span><br><span class="line">	<span class="meta">@Column(name = &quot;MEMBER_ID&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//연관관계 매핑해주는 부분!!</span></span><br><span class="line">	<span class="meta">@ManyToOne</span></span><br><span class="line">	<span class="meta">@JoinColumn(name = &quot;TEAM_ID&quot;)</span></span><br><span class="line">	<span class="keyword">private</span> Team team;</span><br></pre></td></tr></table></figure>
+
+<p>위 처럼 코드상에서 셋팅해주면 돼!!</p>
+<p>@ManyToOne 어노테이션을 붙여줌으로써 다대일 관계 매핑을 해줌과 동시에 @JoinColumn 어노테이션을 통해 어떤 외래키와 매핑 되는지의 정보를 주면 되는거야!!</p>
+<br>
+
+<h3 id="다대일-N-1-양방향"><a href="#다대일-N-1-양방향" class="headerlink" title="다대일(N:1) 양방향"></a>다대일(N:1) 양방향</h3><p>위의 다대일 단방향 관계를 참고해보면 Member에서 Team으로의 참조는 있었으나 Team에서 Member로의 참조는 없었따!</p>
+<p>여기서 Team에서 Member로의 참조를 추가시켜주면 다대일 양방향 관계가 만들어지는 것이다.</p>
+<p>아래 그림처럼 말이다!</p>
+<p><img src="https://github.com/namjunemy/TIL/blob/master/Jpa/inflearn/img/11_many_to_one.PNG?raw=true"></p>
+<p>이렇게 해줌으로써 이제 Team에서도 Member를 참조하는 것이 가능해 지는거야!!</p>
+<p>저~ 위에서도 말했듯이 양방향은 엄밀히 얘기하면 단방향이 두개 존재한다는 것이라고 했는데 이제 그 말이 이해가 될거야. 결국은 반대쪽에서 단방향 관계를 추가시키니 양방향 관계가 만들어진거자나.</p>
+<p>여기서 중요하게 보고 넘어가야할 것이 있어.</p>
+<p><strong>현재 Member 쪽이 외래키를 관리하고 외래키를 관리하느 놈→ 연관관계 주인이기에</strong></p>
+<p><strong>Team 쪽에서 어떤 DB에 영향을 주는 작업을 하지는 못해!!</strong></p>
+<p>만들어준 해당 참조를 통해 조회만 가능하지 Update는 할 수 없다는 말이야!!</p>
+<p>이를 코드로 나타내어 본다면</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Team</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span> <span class="meta">@GenartedValue</span></span><br><span class="line">		<span class="meta">@Column(name = &quot;TEAM_ID&quot;)</span></span><br><span class="line">		<span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//연관관계 정의 해 주는 곳</span></span><br><span class="line">    <span class="meta">@OneToMany(mappedBy = &quot;team&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Member&gt; members = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>이렇게 @OneToMany 어노테이션을 붙임으로써 연관관계를 정의 해 줄수 있으며 mappedBy를 통해 연관관계의 주인을 나타낼 수 있어!!</p>
+<p>현재 Member 쪽이 외래키를 관리하고 있는 놈이며 그렇기에 연관관계의 주인이 되어야하고</p>
+<p>→ Team 쪽에서 mappedBy를 해줌으로써 Member가 연관관계의 주인임을 정의할 수 있어.</p>
+<br>
+
+<h3 id="일대다-1-N-단방향"><a href="#일대다-1-N-단방향" class="headerlink" title="일대다(1:N) 단방향"></a>일대다(1:N) 단방향</h3><p>1이 연관관계 주인인거쥐. 먼저 그림으로 한번 스윽 보겠따.</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https://blog.kakaocdn.net/dn/dMPMAv/btqOn1xvo7I/7lfY8tXXcMiAfxV1ufN6n0/img.png"></a></p>
+<p>Team이 1이고 Member가 N이었자나!!</p>
+<p>위의 그림과 차이점을 보면 Team과 Member의 위치가 바껴있지.</p>
+<p>여기서는 1 즉 Team 을 기준으로 외래키를 관리하는 등 해보겠따이거야.</p>
+<p>그리고 단방향이기에 Team은 Member를 참조하고싶지만 Member에서는 Team을 참조하지 않아도 된다는 그런 설정이지!!</p>
+<p>이렇게 되면 Team쪽에서 외래키를 관리하는데 TABLE 상에서 외래키는 당연히 N쪽인 MEMBER에 위치하고 있겠지.</p>
+<p>결국엔 위처럼 조금은 이상한 구조가 만들어져 버리는거야.</p>
+<p>이게 어떻게 돌아가는거냐??</p>
+<p>보이는 그대로 Team에서 members에 뭔가 넣거나 혹은 수정이 있으면 MEMBER TABLE에 대해 이를 맞춰주는 작업들이 들어간다고 보면 되는거지.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Team</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="meta">@Column(name = &quot;TEAM_ID&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OneToMany</span></span><br><span class="line">    <span class="meta">@JoinColumn(name = &quot;TEAM_ID&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;Member&gt; members = <span class="keyword">new</span> ArrayList&lt;Member&gt;();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>코드로 본다면 위처럼 생겼다고 볼 수 있찌!!</p>
+<p>이렇게 구현할 경우 어떤 부분이 안좋을까?? 🧐🧐🧐</p>
+<p><strong>쿼리가 많이 나가게 돼!!</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JpaMain</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(...)</span> </span>&#123;</span><br><span class="line">		... <span class="comment">//em 만들고 transaction관련 처리 하고 try catch.. 등등</span></span><br><span class="line">		...</span><br><span class="line">		Member member = <span class="keyword">new</span> Member();</span><br><span class="line">		member.setUsername(<span class="string">&quot;member1&quot;</span>);</span><br><span class="line"></span><br><span class="line">		em.persist(member); <span class="comment">//MEMBER TABLE INSERT쿼리 날라가</span></span><br><span class="line"></span><br><span class="line">		Team team = <span class="keyword">new</span> Team();</span><br><span class="line">		team.setName(<span class="string">&quot;teamA&quot;</span>);</span><br><span class="line"></span><br><span class="line">		team.getMembers().add(member); <span class="comment">// MEMBER TABLE 쪽에 UPDATE를 날려줘야해</span></span><br><span class="line"></span><br><span class="line">		em.persist(team); <span class="comment">//TEAM TABLE INSERT쿼리 날라가</span></span><br><span class="line"></span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>외래키를 관리하는 객체 관점과 실제 테이블의 외래키가 존재하는 테이블의 매칭이 될 경우 위 경우처럼 insert를 하면서 update 쿼리를 날릴 필요가 없어!!</p>
+<p>무슨 말이야?? team쪽의 getMembers().add를 통해 어떤 변화가 생겼는데 Team의 members가 관리하는 외래키는 MEMBER TABLE에 존재하고 결국 그 변화를 반영하기 위해서는 MEMBER TABLE에 UPDATE쿼리를 날릴 수 밖에 없는거지!!</p>
+<p>그리고 실무에서 사용을 기피하는 이유는 <strong>엄청 복잡한 상황에서 TEAM을 건드렸는데 MEMBER에 쿼리가 나가는 상황은 추적하기 어렵고 결과적으로 후에 관리하기 힘들어지는거야!!</strong></p>
+<p><strong>→ 다대일 양방향 관계로 사용하는 것을 추천하는 이유야!!</strong></p>
+<br>
+
+<h3 id="일대다-1-N-양방향"><a href="#일대다-1-N-양방향" class="headerlink" title="일대다(1:N) 양방향"></a>일대다(1:N) 양방향</h3><p>공식적으로는 없지만 야매로 가능해..</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https://blog.kakaocdn.net/dn/CRM2F/btqOprboMgd/2mEJmR1vCSnvN50oPmxnY0/img.png"></a></p>
+<p>자… 지금까지 왔으니 해당 다이아그램이 코드상에서 어떻게 나타나 지는지 느낌은 올거야.</p>
+<p>공식적으로 되는 것이 없고 야매로 한다는 것은 아래와 같애.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Member</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="meta">@Column(name = &quot;MEMBER_ID&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//양방향을 위한</span></span><br><span class="line">    <span class="meta">@ManyToOne</span></span><br><span class="line">    <span class="meta">@JoinColumn(name = &quot;TEAM_ID&quot;, insertable = false, updatable = false)</span></span><br><span class="line">    <span class="keyword">private</span> Team team;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Member 쪽에서 Team을 참조할 수 있는 구조로 만들었지.</p>
+<p>@ManyToOne을 통해 Member에서 Team로의 관계를 만들어주었고</p>
+<p>@JoinColumn 을 통해 외래키 매핑을 시켜줬지. 위에서 보듯이 옵션이 추가가 되었음을 알 수 있어. 만약 저 옵션이 없는 경우를 생각해보자.</p>
+<p>그럼 연관관계의 주인이 Team, Member 둘 다가 되버리는 아주 이상한 상황이 만들어지는거지!!</p>
+<p>그래서 insertable = false와 updatable = false 를 통해 조회만 가능하게 함으로써 야매로 해당 일대다 양방향 관계를 가능하게 끔 한거지</p>
+<p><strong>→ 그냥 쓰지마!!!! 다대일 양방향을 써!!</strong></p>
+<br>
+
+<h3 id="일대일-단-양-방향"><a href="#일대일-단-양-방향" class="headerlink" title="일대일 단/양 방향"></a>일대일 단/양 방향</h3><p>일대일 관계는 외래키가 주 테이블에 있어도 되고 대상 테이블에 있어도 되는거야!!</p>
+<p>why? 1:1이니까!! 그래서 두가지 방법 중 하나를 선택하면 되는거지.</p>
+<p>그리고 데이터베이스에 유니크 제약조건을 걸어줌으로써 일대일 관계를 완성시킬 수 있어.</p>
+<p>일대일은 결국 자기가 자기꺼 관리한다 생각하면 돼!!</p>
+<p>테이블에 외래키가 있는 쪽과 매칭되는 놈을 연관관계 주인으로 설정하고 쓰는거쥐<br><br></p>
+<p><strong>1. 일대일 주 테이블에 외래 키 단방향</strong></p>
+<p><img src="https://github.com/namjunemy/TIL/blob/master/Jpa/inflearn/img/13_one_to_one.png?raw=true"></p>
+<p>회원이 하나의 락커를 가지고, 락커도 하나의 회원에게 할당되어진다는 상황을 가정하고 있어!!</p>
+<p>그리고 주 테이블에 외래키가 있고 단방향이라면 위 그림처럼 되는거지!!</p>
+<p>그냥 다대일 단방향 관계 매핑과 거의 동일한 구조로 만들면 돼!! (@OneToOne 어노테이션만 달라지는 부분이라고 볼 수 있쥐)<br><br></p>
+<p><strong>2. 일애일 주 테이블에 외래 키 양방향</strong></p>
+<p>: 위 상황에서 Locker에서 Member를 참조할 수 있게끔 Locker 쪽에 추가해주면 되겠지.</p>
+<p>간단하게 코드를 보자면</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Locker</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@OneToOne(mappedBy = &quot;locker&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Member member;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>이렇게 되는거겠지. 어렵진 않아.<br><br></p>
+<p><strong>3. 대상 테이블에 외래 키 단방향</strong></p>
+<p>: 이건 그냥 안되는거야!!<br><br></p>
+<p><strong>4. 대상 테이블에 외래 키 양방향</strong></p>
+<p><img src="https://github.com/namjunemy/TIL/blob/master/Jpa/inflearn/img/14_one_to_one.png?raw=true"></p>
+<p>그냥 ‘일대일 주 테이블에 외래 키 양방향’을 뒤집은 구조라고 생각하면 돼!!</p>
+<p>주 테이블(MEMBER)에 외래키가 있던게 대상 테이블(LOCKER)로 간 것만 다르고 전체적인 구조는 동일 한 것을 볼 수 있어.</p>
+<br>
+
+<h3 id="다대다-N-M-단-양-방향"><a href="#다대다-N-M-단-양-방향" class="headerlink" title="다대다(N:M) 단/양 방향"></a>다대다(N:M) 단/양 방향</h3><p>: 이건 그냥 쓰지마. 실무에서는 사용이 안되어진다고 볼 수 있데.</p>
+<p>WHY??</p>
+<p>간단하게 이야기하자면 @ManyToMany를 통해 양방향 관계를 설정하면 결과적으로 관계를 나타내기 위한 중간 테이블이 만들어진데!!</p>
+<p>하지만 이 중간테이블에 어떤 작업을 해줄 수 있는 방안은 없어. 단지 두 테이블의 관계만 각각의 외래키를 통해 형성해 줄 뿐이지.</p>
+<p>그럼 만약 실무에서 형성된 관계 테이블에 시간(언제 형성되었는지)과 같은 정보를 넣고싶다고 하더라도 안되는거야!!</p>
+<p>😅<strong>😅😅그럼 어떻게 하란거야…😅😅😅</strong></p>
+<p><strong>→ 연결 테이블용 엔티티를 추가하면 돼!! 즉 연결 테이블을 엔티티로 승격시키는거지</strong></p>
+<p><img src="https://github.com/namjunemy/TIL/blob/master/Jpa/inflearn/img/18_many_to_many.png?raw=true"></p>
+<p>이렇게 말이야!!</p>
+<p>@ManyToMany 를 @OneToMany와 @ManyToOne을 통해 풀어내는거지!! 이렇게 사용하면 된다 이말이야!! 여기서 한가지 의문은 관계 테이블에서 보통 A,B의 관계를 나타내는 테이블이라고 가정한다면 A,B의 PK를 FK로 가져와 이 두개를 묶어 관계 테이블의 PK로 사용한다.</p>
+<p>BUT 영한센세의 말에 의하면 PK는 최대한 비지니스 로직을 벗어나는 것이 좋고 의미 없는 것을 사용하는 것이 좋다고 하니 Generated Value를 통해 만들어서 사용하도록 하자!!</p>
+<p><br><br><br><br><br><br><br></p>
+<blockquote>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.inflearn.com/course/ORM-JPA-Basic">https://www.inflearn.com/course/ORM-JPA-Basic</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://ict-nroo.tistory.com/125?category=826875">https://ict-nroo.tistory.com/125?category=826875</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://jgrammer.tistory.com/entry/JPA-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%97%B0%EA%B4%80%EA%B4%80%EA%B3%84-%EB%A7%A4%ED%95%91-1-%EB%8B%A4%EB%8C%80%EC%9D%BC-%EC%9D%BC%EB%8C%80%EB%8B%A4-1">https://jgrammer.tistory.com/entry/JPA-다양한-연관관계-매핑-1-다대일-일대다-1</a></p>
+</blockquote>
+</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/jpa/">jpa</a><a class="post-meta__tags" href="/tags/orm/">orm</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2021/07/30/jpa_key_mapping/"><span>JPA와 기본 키 매핑에 관하여</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: 'a9fadaa0c71177598341',
+  clientSecret: '677df1a9ceea07288fecd99348d15054f5659172',
+  repo: 'devk0ng.github.io',
+  owner: 'devk0ng',
+  admin: 'devk0ng',
+  id: md5(decodeURI(location.pathname)),
+  language: 'en'
+})
+gitalk.render('gitalk-container')</script></div></div><footer class="footer-bg" style="background-image: url(/img/background2.png)"><div class="layout" id="footer"><div class="copyright">&copy;2021 By Sungbin Hong</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="external nofollow noopener noreferrer" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/algolia.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
