@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-08-01T16:52:10.625Z</updated>
+  <updated>2021-08-08T16:25:46.840Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JPA 상속관계 매핑에 대해 알아보자</title>
+    <link href="https://devk0ng.github.io/2021/08/09/jpa_inheritance_mapping/"/>
+    <id>https://devk0ng.github.io/2021/08/09/jpa_inheritance_mapping/</id>
+    <published>2021-08-08T16:23:36.862Z</published>
+    <updated>2021-08-08T16:25:46.840Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;상속관계-매핑이란&quot;&gt;&lt;a href=&quot;#상속관계-매핑이란&quot; class=&quot;headerlink&quot; title=&quot;상속관계 매핑이란&quot;&gt;&lt;/a&gt;상속관계 매핑이란&lt;/h1&gt;&lt;p&gt;: 먼저 데이터 베이스는 원래는 상속 관계를 지원하지 않아!! But 슈퍼타입-서브타입이라는 모델링 기법이 존재하고 이녀석이 객체 상속과 비슷하게 생겼어!! 이를 이용해서 상속관계를 나타내보자!! 이렇게 된거지&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;상속관계 매핑은 객체의 상속구조와 데이터베이스의 슈퍼타입-서브타입 관계를 매핑하는거야!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;여기에는 크게 3가지 전략이 있어&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;조인전략&lt;/li&gt;
+&lt;li&gt;단일 테이블 전략&lt;/li&gt;
+&lt;li&gt;구현 클래스마다 테이블 전략&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이 3가지에 대해 알아볼거야. 참고로 어떤 전략을 쓰던 jpa에서는 상관없이 전부 매핑이 가능해.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/categories/jpa/"/>
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/tags/jpa/"/>
+    
+    <category term="orm" scheme="https://devk0ng.github.io/tags/orm/"/>
+    
+  </entry>
   
   <entry>
     <title>JPA 연관관계 매핑에 대해 알아보자</title>
