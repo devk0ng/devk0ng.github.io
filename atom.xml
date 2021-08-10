@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-08-08T16:25:46.840Z</updated>
+  <updated>2021-08-10T17:30:23.642Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JPA 영속성 전이(CASECADE)와 고아객체에 대해 알아보자</title>
+    <link href="https://devk0ng.github.io/2021/08/11/jpa_cascade_orphan/"/>
+    <id>https://devk0ng.github.io/2021/08/11/jpa_cascade_orphan/</id>
+    <published>2021-08-10T17:28:54.001Z</published>
+    <updated>2021-08-10T17:30:23.642Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;JPA-영속성-전이-CASECADE-와-고아객체&quot;&gt;&lt;a href=&quot;#JPA-영속성-전이-CASECADE-와-고아객체&quot; class=&quot;headerlink&quot; title=&quot;JPA 영속성 전이(CASECADE)와 고아객체&quot;&gt;&lt;/a&gt;JPA 영속성 전이(CASECADE)와 고아객체&lt;/h1&gt;&lt;h1 id=&quot;영속성-전이-CASECADE&quot;&gt;&lt;a href=&quot;#영속성-전이-CASECADE&quot; class=&quot;headerlink&quot; title=&quot;영속성 전이 (CASECADE)&quot;&gt;&lt;/a&gt;영속성 전이 (CASECADE)&lt;/h1&gt;&lt;p&gt;영속성 전이란 특정 &lt;strong&gt;엔티리를 영속 상태로 만들 때 연관된 엔티티도 함께 영속 상태로 만들고 싶을 때&lt;/strong&gt; 사용하면 되는 개념이야&lt;/p&gt;
+&lt;p&gt;예를 들어 부모 엔티티를 persist할 때 자동으로 자식 엔티티도 함께 persist 시키고 싶을 때 말이지!&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/categories/jpa/"/>
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/tags/jpa/"/>
+    
+    <category term="orm" scheme="https://devk0ng.github.io/tags/orm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JPA 프록시와 즉시로딩, 지연로딩에 대해 알아보자</title>
+    <link href="https://devk0ng.github.io/2021/08/11/jpa_proxy_eager_lazy/"/>
+    <id>https://devk0ng.github.io/2021/08/11/jpa_proxy_eager_lazy/</id>
+    <published>2021-08-10T17:25:20.639Z</published>
+    <updated>2021-08-10T17:30:49.229Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;프록시와-즉시로딩-지연로딩&quot;&gt;&lt;a href=&quot;#프록시와-즉시로딩-지연로딩&quot; class=&quot;headerlink&quot; title=&quot;프록시와 즉시로딩, 지연로딩&quot;&gt;&lt;/a&gt;프록시와 즉시로딩, 지연로딩&lt;/h1&gt;&lt;h1 id=&quot;프록시&quot;&gt;&lt;a href=&quot;#프록시&quot; class=&quot;headerlink&quot; title=&quot;프록시&quot;&gt;&lt;/a&gt;프록시&lt;/h1&gt;&lt;p&gt;지연로딩에 대해 이야기를 하기위해서는 프록시에 대해 먼저 알아야해!&lt;/p&gt;
+&lt;p&gt;프록시가 무엇이냐??&lt;/p&gt;
+&lt;p&gt;쉽게 말하면 &lt;strong&gt;가짜 엔티티&lt;/strong&gt;라고 생각할 수 있어&lt;/p&gt;
+&lt;p&gt;EntityManger를 통해 프록시 객체를 조회하기 위해서는 em.getReference() 메소드를 이용할 수 있어!! 그러면 프록시를 가져와!!&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/categories/jpa/"/>
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/tags/jpa/"/>
+    
+    <category term="orm" scheme="https://devk0ng.github.io/tags/orm/"/>
+    
+  </entry>
   
   <entry>
     <title>JPA 상속관계 매핑에 대해 알아보자</title>
