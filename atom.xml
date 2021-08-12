@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-08-10T17:30:23.642Z</updated>
+  <updated>2021-08-12T16:45:10.521Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JPA 값 타입 대해 알아보자</title>
+    <link href="https://devk0ng.github.io/2021/08/13/jpa_valuetype/"/>
+    <id>https://devk0ng.github.io/2021/08/13/jpa_valuetype/</id>
+    <published>2021-08-12T16:44:15.229Z</published>
+    <updated>2021-08-12T16:45:10.521Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;값타입&quot;&gt;&lt;a href=&quot;#값타입&quot; class=&quot;headerlink&quot; title=&quot;값타입&quot;&gt;&lt;/a&gt;값타입&lt;/h1&gt;&lt;br/&gt;
+
+&lt;h1 id=&quot;JPA의-데이터-타입-분류&quot;&gt;&lt;a href=&quot;#JPA의-데이터-타입-분류&quot; class=&quot;headerlink&quot; title=&quot;JPA의 데이터 타입 분류&quot;&gt;&lt;/a&gt;JPA의 데이터 타입 분류&lt;/h1&gt;&lt;p&gt;JPA에는 크게 두개의 데이터 타입이 있어!! 바로 엔티티타입과 값타입이야.&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h2 id=&quot;엔티티-타입&quot;&gt;&lt;a href=&quot;#엔티티-타입&quot; class=&quot;headerlink&quot; title=&quot;엔티티 타입&quot;&gt;&lt;/a&gt;엔티티 타입&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;@Entity로 정의하는 객체!&lt;/li&gt;
+&lt;li&gt;엔티티는 데이터가 변해도 식별자로 지속해서 추적이 가능해! 너무 당연한거지&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+
+&lt;h2 id=&quot;값-타입&quot;&gt;&lt;a href=&quot;#값-타입&quot; class=&quot;headerlink&quot; title=&quot;값 타입&quot;&gt;&lt;/a&gt;값 타입&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;int, Integer, String 처럼 단순히 값으로 사용하는 자바 기본 타입이나 객체&lt;/li&gt;
+&lt;li&gt;식별자가 없고 값만 있기에 변경시 추적이 불가능 해!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;갑 타입에 대해 알아보자!!&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/categories/jpa/"/>
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/tags/jpa/"/>
+    
+    <category term="orm" scheme="https://devk0ng.github.io/tags/orm/"/>
+    
+  </entry>
   
   <entry>
     <title>JPA 영속성 전이(CASECADE)와 고아객체에 대해 알아보자</title>
