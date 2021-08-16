@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-08-12T16:45:10.521Z</updated>
+  <updated>2021-08-16T08:12:14.434Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>객체지향쿼리언어 JPQL에 대해 알아보자!</title>
+    <link href="https://devk0ng.github.io/2021/08/16/jpa_jpql/"/>
+    <id>https://devk0ng.github.io/2021/08/16/jpa_jpql/</id>
+    <published>2021-08-16T08:10:58.064Z</published>
+    <updated>2021-08-16T08:12:14.434Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;객체지향쿼리언어-JPQL&quot;&gt;&lt;a href=&quot;#객체지향쿼리언어-JPQL&quot; class=&quot;headerlink&quot; title=&quot;객체지향쿼리언어 (JPQL)&quot;&gt;&lt;/a&gt;객체지향쿼리언어 (JPQL)&lt;/h1&gt;&lt;h1 id=&quot;JPA의-쿼리-방법-지원&quot;&gt;&lt;a href=&quot;#JPA의-쿼리-방법-지원&quot; class=&quot;headerlink&quot; title=&quot;JPA의 쿼리 방법 지원&quot;&gt;&lt;/a&gt;JPA의 쿼리 방법 지원&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;JPQL&lt;/li&gt;
+&lt;li&gt;JPA Criteria&lt;/li&gt;
+&lt;li&gt;QueryDSL&lt;/li&gt;
+&lt;li&gt;네이티브SQL (그냥 sql 쿼리 날리는 거)&lt;/li&gt;
+&lt;li&gt;JDBC API 직접 사용, MyBatis, Spring JDBC Template&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;이 중에서도 JPQL 과 QueryDSL의 조합으로 사용하는 것이 좋아!!&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/categories/jpa/"/>
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/tags/jpa/"/>
+    
+    <category term="orm" scheme="https://devk0ng.github.io/tags/orm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Circuit Breaker와 MSA</title>
+    <link href="https://devk0ng.github.io/2021/08/16/circuit_breaker/"/>
+    <id>https://devk0ng.github.io/2021/08/16/circuit_breaker/</id>
+    <published>2021-08-16T08:09:41.279Z</published>
+    <updated>2021-08-16T08:10:53.933Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Circuit-breaker&quot;&gt;&lt;a href=&quot;#Circuit-breaker&quot; class=&quot;headerlink&quot; title=&quot;Circuit breaker&quot;&gt;&lt;/a&gt;Circuit breaker&lt;/h1&gt;&lt;h2 id=&quot;Circuit-Breaker는-어디에-쓰이는-놈인가&quot;&gt;&lt;a href=&quot;#Circuit-Breaker는-어디에-쓰이는-놈인가&quot; class=&quot;headerlink&quot; title=&quot;Circuit Breaker는 어디에 쓰이는 놈인가?&quot;&gt;&lt;/a&gt;Circuit Breaker는 어디에 쓰이는 놈인가?&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;circuit breaker&lt;/strong&gt;가 무엇을 하는 놈인가를 보기 전에 어디에 쓰는지를 먼저 보자&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MSA구조에서는 시스템을 여러개의 서비스 컴포넌트로 나누고 이러한 서비스 컴포넌트간에 호출하는 개념&lt;/strong&gt;을 가지고 있지.&lt;/p&gt;
+&lt;p&gt;이러한 구조에서 잘 생각해보면 단점이 몇 가지 존재하는 데 그 중 하나가 &lt;strong&gt;장애전파가 일어날 수 있다는 점&lt;/strong&gt;이야!&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="msa" scheme="https://devk0ng.github.io/categories/msa/"/>
+    
+    
+    <category term="msa" scheme="https://devk0ng.github.io/tags/msa/"/>
+    
+    <category term="circuit breaker" scheme="https://devk0ng.github.io/tags/circuit-breaker/"/>
+    
+  </entry>
   
   <entry>
     <title>JPA 값 타입 대해 알아보자</title>
