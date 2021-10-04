@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-10-04T14:23:27.580Z</updated>
+  <updated>2021-10-04T14:25:05.707Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -18,21 +18,26 @@
   
   <entry>
     <title>Spring Data Jpa Query Method에 대해 알아보자</title>
-    <link href="https://devk0ng.github.io/2021/10/04/spring_data_jpa_start%20copy/"/>
-    <id>https://devk0ng.github.io/2021/10/04/spring_data_jpa_start%20copy/</id>
+    <link href="https://devk0ng.github.io/2021/10/04/spring_data_jpa_query_method/"/>
+    <id>https://devk0ng.github.io/2021/10/04/spring_data_jpa_query_method/</id>
     <published>2021-10-04T14:22:54.989Z</published>
-    <updated>2021-10-04T14:23:27.580Z</updated>
+    <updated>2021-10-04T14:25:05.707Z</updated>
     
     
-      
-      
-        
-        
     <summary type="html">&lt;h1 id=&quot;쿼리-메소드-기능&quot;&gt;&lt;a href=&quot;#쿼리-메소드-기능&quot; class=&quot;headerlink&quot; title=&quot;쿼리 메소드 기능&quot;&gt;&lt;/a&gt;쿼리 메소드 기능&lt;/h1&gt;&lt;br/&gt;
 
-&lt;h2 id=&quot;메소드-이름으로-쿼리-생성&quot;&gt;&lt;a</summary>
-        
-      
+&lt;h2 id=&quot;메소드-이름으로-쿼리-생성&quot;&gt;&lt;a href=&quot;#메소드-이름으로-쿼리-생성&quot; class=&quot;headerlink&quot; title=&quot;메소드 이름으로 쿼리 생성&quot;&gt;&lt;/a&gt;메소드 이름으로 쿼리 생성&lt;/h2&gt;&lt;p&gt;: 메소드 이름을 분석해서 JPQL 쿼리 실행을 시켜줘!!&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h3 id=&quot;스프링-데이터-jpa가-제공하는-쿼리-메소드-기능&quot;&gt;&lt;a href=&quot;#스프링-데이터-jpa가-제공하는-쿼리-메소드-기능&quot; class=&quot;headerlink&quot; title=&quot;스프링 데이터 jpa가 제공하는 쿼리 메소드 기능&quot;&gt;&lt;/a&gt;스프링 데이터 jpa가 제공하는 쿼리 메소드 기능&lt;/h3&gt;&lt;p&gt;(&lt;a href=&quot;https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference&quot;&gt;https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#reference&lt;/a&gt;)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;조회 : find…By, read…By, query…By, get…By (…에는 어떠한 것도 들어갈 수 있다 ex) findHelloBy)&lt;/li&gt;
+&lt;li&gt;COUNT: count…By (반환타입 : long)&lt;/li&gt;
+&lt;li&gt;EXISTS : exists…By (반환타입 : boolean)&lt;/li&gt;
+&lt;li&gt;삭제 : delete…By, remove…By (반환타입 : long)&lt;/li&gt;
+&lt;li&gt;DISTINCT : findDistinct, findMemberDistinctBy&lt;/li&gt;
+&lt;li&gt;LIMIT : findFirst3, findFrist, findTop, findTop3 이런식으로&lt;/li&gt;
+&lt;/ol&gt;</summary>
     
     
     
@@ -52,16 +57,20 @@
     <link href="https://devk0ng.github.io/2021/10/04/spring_data_jpa_start/"/>
     <id>https://devk0ng.github.io/2021/10/04/spring_data_jpa_start/</id>
     <published>2021-10-04T14:16:44.524Z</published>
-    <updated>2021-10-04T14:17:42.495Z</updated>
+    <updated>2021-10-04T14:25:16.535Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;스프링부트-라이브러리-구조&quot;&gt;&lt;a href=&quot;#스프링부트-라이브러리-구조&quot; class=&quot;headerlink&quot; title=&quot;스프링부트 라이브러리 구조&quot;&gt;&lt;/a&gt;스프링부트 라이브러리 구조&lt;/h1&gt;&lt;h3</summary>
-        
-      
+    <summary type="html">&lt;h1 id=&quot;스프링부트-라이브러리-구조&quot;&gt;&lt;a href=&quot;#스프링부트-라이브러리-구조&quot; class=&quot;headerlink&quot; title=&quot;스프링부트 라이브러리 구조&quot;&gt;&lt;/a&gt;스프링부트 라이브러리 구조&lt;/h1&gt;&lt;h3 id=&quot;Spring-boot-starter-Web&quot;&gt;&lt;a href=&quot;#Spring-boot-starter-Web&quot; class=&quot;headerlink&quot; title=&quot;Spring-boot-starter-Web&quot;&gt;&lt;/a&gt;Spring-boot-starter-Web&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;spring-boot-starter-tomcat&lt;/li&gt;
+&lt;li&gt;spring-webmvc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+
+&lt;h3 id=&quot;spring-boot-starter-jdbc&quot;&gt;&lt;a href=&quot;#spring-boot-starter-jdbc&quot; class=&quot;headerlink&quot; title=&quot;spring-boot-starter-jdbc&quot;&gt;&lt;/a&gt;spring-boot-starter-jdbc&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;spring-boot-starter-aop&lt;/li&gt;
+&lt;li&gt;spring-boot-starter-jdbc (HikariCp Connection Pool)&lt;/li&gt;
+&lt;li&gt;spring-data-jpa&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
