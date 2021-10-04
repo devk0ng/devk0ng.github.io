@@ -9,6 +9,13 @@
 
 
     <url>
+        <loc>https://devk0ng.github.io/categories/spring-data-jpa/</loc>
+        <lastmod>2021-10-04T14:17:42.495Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://devk0ng.github.io/categories/jpa/</loc>
         <lastmod>2021-08-22T12:53:35.361Z</lastmod>
         <changefreq>weekly</changefreq>
