@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-10-04T14:17:42.495Z</updated>
+  <updated>2021-10-04T14:23:27.580Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Data Jpa Query Method에 대해 알아보자</title>
+    <link href="https://devk0ng.github.io/2021/10/04/spring_data_jpa_start%20copy/"/>
+    <id>https://devk0ng.github.io/2021/10/04/spring_data_jpa_start%20copy/</id>
+    <published>2021-10-04T14:22:54.989Z</published>
+    <updated>2021-10-04T14:23:27.580Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;쿼리-메소드-기능&quot;&gt;&lt;a href=&quot;#쿼리-메소드-기능&quot; class=&quot;headerlink&quot; title=&quot;쿼리 메소드 기능&quot;&gt;&lt;/a&gt;쿼리 메소드 기능&lt;/h1&gt;&lt;br/&gt;
+
+&lt;h2 id=&quot;메소드-이름으로-쿼리-생성&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="spring data jpa" scheme="https://devk0ng.github.io/categories/spring-data-jpa/"/>
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/tags/jpa/"/>
+    
+    <category term="orm" scheme="https://devk0ng.github.io/tags/orm/"/>
+    
+    <category term="spring data jpa" scheme="https://devk0ng.github.io/tags/spring-data-jpa/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring Data Jpa를 시작하면서</title>
