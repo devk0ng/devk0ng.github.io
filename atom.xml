@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-10-04T14:25:05.707Z</updated>
+  <updated>2021-10-19T14:12:02.161Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>스프링 데이터 JPA 페이징과 정렬에 대해 알아보자</title>
+    <link href="https://devk0ng.github.io/2021/10/19/spring_data_jpa_paging_sort/"/>
+    <id>https://devk0ng.github.io/2021/10/19/spring_data_jpa_paging_sort/</id>
+    <published>2021-10-19T14:07:50.248Z</published>
+    <updated>2021-10-19T14:12:02.161Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;반환-타입&quot;&gt;&lt;a href=&quot;#반환-타입&quot; class=&quot;headerlink&quot; title=&quot;반환 타입&quot;&gt;&lt;/a&gt;반환 타입&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;Page(org.springframework.data.domain.Page) 형태 : 추가 count 쿼리 결과를 포함하는 페이징을 받을 수 있어&lt;/li&gt;
+&lt;li&gt;Slice(org.springframework.data.domain.Slice) 형태 : 추가 count 쿼리 없이 다음 페이지만 확인 가능해 ( 내부적으로 limit + 1 로 가져와서 다음 데이터가 있는지 없는지를 체크하는거지)&lt;/li&gt;
+&lt;li&gt;List : 추가 count 쿼리 없이 결과 반환&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="spring data jpa" scheme="https://devk0ng.github.io/categories/spring-data-jpa/"/>
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/tags/jpa/"/>
+    
+    <category term="orm" scheme="https://devk0ng.github.io/tags/orm/"/>
+    
+    <category term="spring data jpa" scheme="https://devk0ng.github.io/tags/spring-data-jpa/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring Data Jpa Query Method에 대해 알아보자</title>
