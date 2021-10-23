@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-10-19T14:12:02.161Z</updated>
+  <updated>2021-10-23T13:25:03.675Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>여러 정렬에 대해 알아보자</title>
+    <link href="https://devk0ng.github.io/2021/10/23/sorting/"/>
+    <id>https://devk0ng.github.io/2021/10/23/sorting/</id>
+    <published>2021-10-23T13:23:45.610Z</published>
+    <updated>2021-10-23T13:25:03.675Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;여러-종류의-정렬-알고리즘을-볼-때-비교-기준&quot;&gt;&lt;a href=&quot;#여러-종류의-정렬-알고리즘을-볼-때-비교-기준&quot; class=&quot;headerlink&quot; title=&quot;여러 종류의 정렬 알고리즘을 볼 때 비교 기준&quot;&gt;&lt;/a&gt;여러 종류의 정렬 알고리즘을 볼 때 비교 기준&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;Stable vs Unstable : 만약 정렬하고자 하는 대상의 크기가 같은 경우, 대상들의 순서가 보장이 되는지(stable) 안되는지(unstable)&lt;/li&gt;
+&lt;li&gt;In-place vs out-of-place : input에 대해 extra memory 없이 transform한다(in-place), 그렇지 않다 (out-of-place)&lt;/li&gt;
+&lt;li&gt;시간복잡도, 공간복잡도&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="sorting" scheme="https://devk0ng.github.io/categories/sorting/"/>
+    
+    
+    <category term="sorting" scheme="https://devk0ng.github.io/tags/sorting/"/>
+    
+    <category term="algorithm" scheme="https://devk0ng.github.io/tags/algorithm/"/>
+    
+  </entry>
   
   <entry>
     <title>스프링 데이터 JPA 페이징과 정렬에 대해 알아보자</title>

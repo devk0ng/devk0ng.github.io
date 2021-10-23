@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://devk0ng.github.io/tags/algorithm/</loc>
+        <lastmod>2021-10-23T13:25:03.675Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/sorting/</loc>
+        <lastmod>2021-10-23T13:25:03.675Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://devk0ng.github.io/tags/spring-data-jpa/</loc>
         <lastmod>2021-10-19T14:12:02.161Z</lastmod>
         <changefreq>weekly</changefreq>
