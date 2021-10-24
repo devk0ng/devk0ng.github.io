@@ -9,6 +9,13 @@
 
 
     <url>
+        <loc>https://devk0ng.github.io/categories/data-structure/</loc>
+        <lastmod>2021-10-24T13:50:31.053Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://devk0ng.github.io/categories/sorting/</loc>
         <lastmod>2021-10-23T13:25:03.675Z</lastmod>
         <changefreq>weekly</changefreq>
