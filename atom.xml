@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-10-24T15:55:31.133Z</updated>
+  <updated>2021-10-25T17:42:10.684Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>여러 탐색방법과 최소신장트리에 대해 알아보자</title>
+    <link href="https://devk0ng.github.io/2021/10/26/searching_mst/"/>
+    <id>https://devk0ng.github.io/2021/10/26/searching_mst/</id>
+    <published>2021-10-25T17:40:56.780Z</published>
+    <updated>2021-10-25T17:42:10.684Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;탐색&quot;&gt;&lt;a href=&quot;#탐색&quot; class=&quot;headerlink&quot; title=&quot;탐색&quot;&gt;&lt;/a&gt;탐색&lt;/h1&gt;&lt;h1 id=&quot;일반적인-탐색&quot;&gt;&lt;a href=&quot;#일반적인-탐색&quot; class=&quot;headerlink&quot; title=&quot;일반적인 탐색&quot;&gt;&lt;/a&gt;일반적인 탐색&lt;/h1&gt;&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&quot;DFS&quot;&gt;&lt;a href=&quot;#DFS&quot; class=&quot;headerlink&quot; title=&quot;DFS&quot;&gt;&lt;/a&gt;DFS&lt;/h2&gt;&lt;br/&gt;
+
+&lt;h3 id=&quot;개념&quot;&gt;&lt;a href=&quot;#개념&quot; class=&quot;headerlink&quot; title=&quot;개념&quot;&gt;&lt;/a&gt;개념&lt;/h3&gt;&lt;p&gt;: dfs는 깊이 우선 탁색(Depth First Search)로 루트 노드 (혹은 선택한 임의의 노드)에서 시작해서 다음 분기(branch)로 넘어가기 전에 해당 분기를 완전하게 탐색하는 방법이야!!&lt;/p&gt;
+&lt;p&gt;흔히 잘 알려진 미로를 탐색하는 문제로 예를 들어보자면, dfs로 미로탐색을 구현할 경우 한방향으로 갈 수 있을 때 까지 계속해서 들어갔다가 더이상 갈 곳이 없을 때 재귀함수가 풀리면서 이전 위치로 이동하게 되고 해당 위치에서 또 갈 수 있는 방향을 탐색해서 있다면 해당 방향으로 쭈욱 갈 수 있는 만큼 가고, 또 어디로도 못가는 상황이 되었다면 재귀가 풀리면서 이전 위치에서 다음 방향을 보고 이런식으로 진행이 되는거야. 정말 말 그대로 깊이 우선 탐색이지.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="algorithm" scheme="https://devk0ng.github.io/categories/algorithm/"/>
+    
+    
+    <category term="algorithm" scheme="https://devk0ng.github.io/tags/algorithm/"/>
+    
+    <category term="search" scheme="https://devk0ng.github.io/tags/search/"/>
+    
+    <category term="mst" scheme="https://devk0ng.github.io/tags/mst/"/>
+    
+  </entry>
   
   <entry>
     <title>여러 자료구조에 대해 알아보자</title>
