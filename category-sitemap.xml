@@ -9,6 +9,13 @@
 
 
     <url>
+        <loc>https://devk0ng.github.io/categories/spring-data-jpa/</loc>
+        <lastmod>2021-10-31T17:11:16.199Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://devk0ng.github.io/categories/algorithm/</loc>
         <lastmod>2021-10-25T17:42:10.684Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -25,13 +32,6 @@
     <url>
         <loc>https://devk0ng.github.io/categories/sorting/</loc>
         <lastmod>2021-10-23T13:25:03.675Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://devk0ng.github.io/categories/spring-data-jpa/</loc>
-        <lastmod>2021-10-19T14:12:02.161Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

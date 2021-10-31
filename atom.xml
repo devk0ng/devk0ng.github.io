@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-10-25T17:42:10.684Z</updated>
+  <updated>2021-10-31T17:11:16.199Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>벌크성 수정쿼리 및 Entity Graph에 대해 알아보자</title>
+    <link href="https://devk0ng.github.io/2021/11/01/spring_data_bulk_entitygraph/"/>
+    <id>https://devk0ng.github.io/2021/11/01/spring_data_bulk_entitygraph/</id>
+    <published>2021-10-31T17:10:24.088Z</published>
+    <updated>2021-10-31T17:11:16.199Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;벌크성-수정쿼리&quot;&gt;&lt;a href=&quot;#벌크성-수정쿼리&quot; class=&quot;headerlink&quot; title=&quot;벌크성 수정쿼리&quot;&gt;&lt;/a&gt;벌크성 수정쿼리&lt;/h1&gt;&lt;p&gt;: 일반적으로 데이터의 update는 jpa의 dirty checking 기능을 활용한다! 그러나 여러 데이터들에 대해 일관된 업데이트 작업을 진행할 때에는 한번의 쿼리로 update 반영하는 것이 좋으며 이때, 벌크성 수정쿼리를 사용하면 되는 것이다!!&lt;/p&gt;
+&lt;br/&gt;
+
+&lt;h2 id=&quot;JPA-벌크성-수정쿼리&quot;&gt;&lt;a href=&quot;#JPA-벌크성-수정쿼리&quot; class=&quot;headerlink&quot; title=&quot;JPA 벌크성 수정쿼리&quot;&gt;&lt;/a&gt;JPA 벌크성 수정쿼리&lt;/h2&gt;&lt;p&gt;: Spring Data Jpa에서 어떻게 벌크성 수정쿼리를 제공하는지에 대해 보기전에 Jpa만으로 어떻게 사용할 수 있는지를 보자&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="spring data jpa" scheme="https://devk0ng.github.io/categories/spring-data-jpa/"/>
+    
+    
+    <category term="jpa" scheme="https://devk0ng.github.io/tags/jpa/"/>
+    
+    <category term="orm" scheme="https://devk0ng.github.io/tags/orm/"/>
+    
+    <category term="spring data jpa" scheme="https://devk0ng.github.io/tags/spring-data-jpa/"/>
+    
+  </entry>
   
   <entry>
     <title>여러 탐색방법과 최소신장트리에 대해 알아보자</title>
