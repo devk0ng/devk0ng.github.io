@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2021-10-31T17:11:16.199Z</updated>
+  <updated>2022-01-17T17:06:28.412Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>일급 컬렉션(First Class Collection)이란?</title>
+    <link href="https://devk0ng.github.io/2022/01/18/first_class_collection/"/>
+    <id>https://devk0ng.github.io/2022/01/18/first_class_collection/</id>
+    <published>2022-01-17T17:03:51.505Z</published>
+    <updated>2022-01-17T17:06:28.412Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;일급-컬렉션&quot;&gt;&lt;a href=&quot;#일급-컬렉션&quot; class=&quot;headerlink&quot; title=&quot;일급 컬렉션&quot;&gt;&lt;/a&gt;일급 컬렉션&lt;/h1&gt;&lt;h2 id=&quot;일급-컬렉션-정의&quot;&gt;&lt;a href=&quot;#일급-컬렉션-정의&quot; class=&quot;headerlink&quot; title=&quot;일급 컬렉션 정의&quot;&gt;&lt;/a&gt;일급 컬렉션 정의&lt;/h2&gt;&lt;p&gt; : collection을 wrapping 하면서, wrapping 한 collection 외에 다른 멤버 변수가 없는 상태를 일급 컬렉션이라 한데. 예를들자면&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="clean code" scheme="https://devk0ng.github.io/categories/clean-code/"/>
+    
+    
+    <category term="java" scheme="https://devk0ng.github.io/tags/java/"/>
+    
+    <category term="clean code" scheme="https://devk0ng.github.io/tags/clean-code/"/>
+    
+  </entry>
   
   <entry>
     <title>벌크성 수정쿼리 및 Entity Graph에 대해 알아보자</title>
