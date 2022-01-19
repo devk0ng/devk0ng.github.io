@@ -11,12 +11,12 @@
 } </script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="devk0ng's blog" type="application/atom+xml">
 </head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git%EC%9D%98-%EC%9B%90%EB%A6%AC"><span class="toc-number">1.</span> <span class="toc-text">git의 원리</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#gid-add%EC%9D%98-%EC%9B%90%EB%A6%AC"><span class="toc-number">1.1.</span> <span class="toc-text">gid add의 원리</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-commit%EC%9D%98-%EC%9B%90%EB%A6%AC"><span class="toc-number">1.2.</span> <span class="toc-text">git commit의 원리</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-status%EC%9D%98-%EC%9B%90%EB%A6%AC"><span class="toc-number">1.3.</span> <span class="toc-text">git status의 원리</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/icon2.png"></div><div class="author-info__name text-center">Sungbin Hong</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">28</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">30</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">10</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/background2.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">devk0ng's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">git의 원리에 대해 알아보자 (add, commit, status)</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-01-20</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/git/">git</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="git의-원리"><a href="#git의-원리" class="headerlink" title="git의 원리"></a>git의 원리</h1><p>전체적인 흐름은 아래 그림과 같다. 여기서 add와 commit 그리고 status의 원리와 함께 위 흐름 중 일부를 간략하게 살펴보자</p>
 <span id="more"></span>
-<p><img src="https://i.stack.imgur.com/y5O09.png" alt="https://i.stack.imgur.com/y5O09.png"></p>
+<p><img src="https://i.stack.imgur.com/y5O09.png"></p>
 <p><br><br></p>
 <h2 id="gid-add의-원리"><a href="#gid-add의-원리" class="headerlink" title="gid add의 원리"></a>gid add의 원리</h2><ol>
-<li>git add를 하면 index 파일과 object 폴더 내에 파일에 변화가 생겨! (index 파일과 object 파일은 .git 폴더 내에서 확인 가능) <img width="496" alt="스크린샷_2022-01-20_오전_12 45 47" src="https://user-images.githubusercontent.com/31160622/150173244-19bf8c3e-7fce-441f-8a5a-bc68ed0f57b2.png"></li>
-<li>object 폴더 내에 생성된 파일들을 보면 add한 파일들의 내용물이 들어있어! <img width="526" alt="스크린샷_2022-01-20_오전_12 49 37" src="https://user-images.githubusercontent.com/31160622/150173361-1697cecc-782f-4a4f-ab42-05d03f6514a4.png"></li>
-<li>그럼 해당 파일의 명은 어떻게 관리를 하는데?! → index 파일에서 파일의 명들을 관리하고 있어. <img width="413" alt="스크린샷 2022-01-20 오전 12 55 54" src="https://user-images.githubusercontent.com/31160622/150173611-ef9cc0b6-4caa-42c2-9b5e-83e0e06bd7bb.png"></li>
+<li>git add를 하면 index 파일과 object 폴더 내에 파일에 변화가 생겨! (index 파일과 object 파일은 .git 폴더 내에서 확인 가능) <img src="https://user-images.githubusercontent.com/31160622/150173244-19bf8c3e-7fce-441f-8a5a-bc68ed0f57b2.png"></li>
+<li>object 폴더 내에 생성된 파일들을 보면 add한 파일들의 내용물이 들어있어! <img src="https://user-images.githubusercontent.com/31160622/150173361-1697cecc-782f-4a4f-ab42-05d03f6514a4.png"></li>
+<li>그럼 해당 파일의 명은 어떻게 관리를 하는데?! → index 파일에서 파일의 명들을 관리하고 있어. <img src="https://user-images.githubusercontent.com/31160622/150173611-ef9cc0b6-4caa-42c2-9b5e-83e0e06bd7bb.png"></li>
 </ol>
 <ol start="4">
 <li>git에서 관리되는 파일들은 그 내용을 바탕으로 해쉬값을 얻어 관리해 → 즉 같은 내용의 파일들에 대해서 중복을 제거하며 관리할 수 있는거지! (그래서 cp 명령어를 통해 파일을 copy한 후 add를 해볼 경우 index파일의 내용에서는 새로운 파일명에 대한 정보가 있지만 새로운 파일명에 해당하는 실제 위치는 기존에 copy 했던 대상 파일을 가리키고 있어)</li>
@@ -31,21 +31,21 @@
 <ul>
 <li>tree가 commit한 즉 해당 버전에 속한 파일들을 가지고 있어. 한마디로 정의하자면 commit하는 시점의 working directory의 snapshot인거지</li>
 <li>parent는 이전 커밋을 가리키고 있어</li>
-<li>그 외에는 author, committer, commit message야<img width="535" alt="스크린샷_2022-01-20_오전_1 08 24" src="https://user-images.githubusercontent.com/31160622/150173661-0bcdb7eb-7b42-49c2-8301-55b42945f975.png"></li>
+<li>그 외에는 author, committer, commit message야<img src="https://user-images.githubusercontent.com/31160622/150173661-0bcdb7eb-7b42-49c2-8301-55b42945f975.png"></li>
 </ul>
 </li>
 <li><p>위의 tree에 해당하는 값으로 이동하면 위의 파일 위치 즉 해쉬값이 local repository에서 관리하고 있는 hi.txt의 위치가 되지. 참고로 저 값은 directory name(앞 2개) + file content 를 바탕으로 해쉬값을 얻은거야!! </p>
- <img width="545" alt="스크린샷_2022-01-20_오전_1 11 15" src="https://user-images.githubusercontent.com/31160622/150173753-a00a82cd-3a87-45d1-96f2-d12c33e7c4c3.png"></li>
+ <img src="https://user-images.githubusercontent.com/31160622/150173753-a00a82cd-3a87-45d1-96f2-d12c33e7c4c3.png"></li>
 <li><p>위의 commit 한 시점의 working directory의 snapshot 내용들 중 hi.txt blob 값으로 이동하면 실제 hi.txt의 내용들이 나오는거지</p>
 </li>
 <li><p>참고로 디렉토리 정보도 tree 라는 형태로 표현되어져!! 그리고 그 tree의 값은 결국은 그 디렉토리 안에 있는 파일의 해싱값을 가지고 있어.</p>
- <img width="486" alt="스크린샷_2022-01-20_오전_1 17 44" src="https://user-images.githubusercontent.com/31160622/150173799-e0854428-0b45-4a9b-95d6-723534521afb.png">
+ <img src="https://user-images.githubusercontent.com/31160622/150173799-e0854428-0b45-4a9b-95d6-723534521afb.png">
  
 <p> commit 후 objects 폴더 내에 생성된 내용을 보면</p>
- <img width="536" alt="스크린샷_2022-01-20_오전_1 18 32" src="https://user-images.githubusercontent.com/31160622/150173845-fdcb8a97-f621-4f9b-a137-5bb818b2271d.png">
+ <img src="https://user-images.githubusercontent.com/31160622/150173845-fdcb8a97-f621-4f9b-a137-5bb818b2271d.png">
 
 <p> 위 dir_test 디렉토리 tree에 해당하는 값을 읽어보면</p>
- <img width="551" alt="스크린샷_2022-01-20_오전_1 19 17" src="https://user-images.githubusercontent.com/31160622/150173885-851cb699-7223-4452-8aed-1e55f5fbff0c.png">
+ <img src="https://user-images.githubusercontent.com/31160622/150173885-851cb699-7223-4452-8aed-1e55f5fbff0c.png">
 
 <p> 이렇게 되는거야</p>
 </li>

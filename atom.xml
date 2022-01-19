@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-01-19T16:36:49.947Z</updated>
+  <updated>2022-01-19T16:39:38.502Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://devk0ng.github.io/2022/01/20/git_add_commit_status/"/>
     <id>https://devk0ng.github.io/2022/01/20/git_add_commit_status/</id>
     <published>2022-01-19T16:35:05.007Z</published>
-    <updated>2022-01-19T16:36:49.947Z</updated>
+    <updated>2022-01-19T16:39:38.502Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;git의-원리&quot;&gt;&lt;a href=&quot;#git의-원리&quot; class=&quot;headerlink&quot; title=&quot;git의 원리&quot;&gt;&lt;/a&gt;git의 원리&lt;/h1&gt;&lt;p&gt;전체적인 흐름은 아래 그림과 같다. 여기서 add와 commit 그리고 status의 원리와 함께 위 흐름 중 일부를 간략하게 살펴보자&lt;/p&gt;</summary>
