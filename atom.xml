@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-01-20T04:38:13.350Z</updated>
+  <updated>2022-01-20T04:48:54.668Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -17,20 +17,48 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Inside Javascript 정리 - 2 (함수, 체이닝)</title>
+    <link href="https://devk0ng.github.io/2022/01/20/inside_javascript2/"/>
+    <id>https://devk0ng.github.io/2022/01/20/inside_javascript2/</id>
+    <published>2022-01-20T04:45:03.037Z</published>
+    <updated>2022-01-20T04:48:54.668Z</updated>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;함수를-리턴하는-함수&quot;&gt;&lt;a href=&quot;#함수를-리턴하는-함수&quot; class=&quot;headerlink&quot; title=&quot;함수를 리턴하는 함수&quot;&gt;&lt;/a&gt;함수를 리턴하는 함수&lt;/h2&gt;&lt;p&gt;: 함수도 일급객체라고 했자나. 그래서 일반 값처럼 함수 자체를 리턴할 수도 있어. &lt;/p&gt;
+&lt;p&gt;여기에서 오는 특징이 함수를 호출함과 동시에 다른 함수로 바꾸거나, 자기 자신을 재정의 하는 함수를 구현할수도 있게되는거야&lt;/p&gt;
+&lt;br/&gt;
+
+
+&lt;h2 id=&quot;arguments-객체&quot;&gt;&lt;a href=&quot;#arguments-객체&quot; class=&quot;headerlink&quot; title=&quot;arguments 객체&quot;&gt;&lt;/a&gt;arguments 객체&lt;/h2&gt;&lt;p&gt;: 자바스크립트에는 arguments라는 객체가 있어. 자바스크립트 함수에는 인자의 갯수를 함수의 정의에서 정해준 것 보다 더 많이 주던 더 적게 주던 에러가 발생하지 않아!&lt;/p&gt;
+&lt;p&gt;그게 바로 arguments 객체 덕분이야. arguments 객체는 함수를 호출할 때 넘긴 인자들이 배열 형태로 저장된 객체를 의미해. 특이한 것은 정확히는 &lt;strong&gt;유사 배열 객체&lt;/strong&gt; 라는 점이지!&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="javascript" scheme="https://devk0ng.github.io/categories/javascript/"/>
+    
+    
+    <category term="javascript" scheme="https://devk0ng.github.io/tags/javascript/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Inside Javascript 정리 - 1</title>
     <link href="https://devk0ng.github.io/2022/01/20/inside_javascript1/"/>
     <id>https://devk0ng.github.io/2022/01/20/inside_javascript1/</id>
     <published>2022-01-20T04:35:35.617Z</published>
-    <updated>2022-01-20T04:38:13.350Z</updated>
+    <updated>2022-01-20T04:45:00.498Z</updated>
     
     
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;Chapter-03-자바스크립트-데이터-타입과-연산자&quot;&gt;&lt;a href=&quot;#Chapter-03-자바스크립트-데이터-타입과-연산자&quot; class=&quot;headerlink&quot; title=&quot;Chapter 03 자바스크립트 데이터 타입과</summary>
-        
-      
+    <summary type="html">&lt;h1 id=&quot;Chapter-03-자바스크립트-데이터-타입과-연산자&quot;&gt;&lt;a href=&quot;#Chapter-03-자바스크립트-데이터-타입과-연산자&quot; class=&quot;headerlink&quot; title=&quot;Chapter 03 자바스크립트 데이터 타입과 연산자&quot;&gt;&lt;/a&gt;Chapter 03 자바스크립트 데이터 타입과 연산자&lt;/h1&gt;&lt;h2 id=&quot;자바스크립트-데이터-타입&quot;&gt;&lt;a href=&quot;#자바스크립트-데이터-타입&quot; class=&quot;headerlink&quot; title=&quot;자바스크립트 데이터 타입&quot;&gt;&lt;/a&gt;자바스크립트 데이터 타입&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;기본 타입 - Number, String, Boolean, undefined, null&lt;/li&gt;
+&lt;li&gt;참조 타입 - Object (Array, Function, 정규표현식)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br/&gt;
+
+
+&lt;h2 id=&quot;자바스크립트-기본-타입&quot;&gt;&lt;a href=&quot;#자바스크립트-기본-타입&quot; class=&quot;headerlink&quot; title=&quot;자바스크립트 기본 타입&quot;&gt;&lt;/a&gt;자바스크립트 기본 타입&lt;/h2&gt;&lt;p&gt;: 느슨한 타입 체크 언어로 변수를 선언할 때 타입을 미리 정하지 않고 , var이라는 한가지 키워드로만 변수를 선언해. 여기에는 어떤 데이터라도 저장하는 것이 가능한거지. &lt;/p&gt;
+&lt;p&gt; 즉, 자바스크립트는 변수에 어떤 형태의 데이터를 저장하느냐에 따라 해당 변수의 타입이 결정되&lt;/p&gt;
+&lt;br/&gt;</summary>
     
     
     

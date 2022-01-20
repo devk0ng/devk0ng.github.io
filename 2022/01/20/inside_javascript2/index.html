@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Inside Javascript 정리 - 2 (함수, 체이닝)"><meta name="keywords" content="javascript"><meta name="author" content="Sungbin Hong"><meta name="copyright" content="Sungbin Hong"><title>Inside Javascript 정리 - 2 (함수, 체이닝) | devk0ng's blog</title><link rel="shortcut icon" href="/img/icon2.png"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="canonical" href="https://devk0ng.github.io/2022/01/20/inside_javascript2/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"LK74G203SS","apiKey":"82b60d701a0005a22c7f6e2476b74ac1","indexName":"myblog","hits":{"per_page":10},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="devk0ng's blog" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%95%A8%EC%88%98%EB%A5%BC-%EB%A6%AC%ED%84%B4%ED%95%98%EB%8A%94-%ED%95%A8%EC%88%98"><span class="toc-number">1.</span> <span class="toc-text">함수를 리턴하는 함수</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#arguments-%EA%B0%9D%EC%B2%B4"><span class="toc-number">2.</span> <span class="toc-text">arguments 객체</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%98%B8%EC%B6%9C%ED%8C%A8%ED%84%B4%EA%B3%BC-this-%EB%B0%94%EC%9D%B8%EB%94%A9"><span class="toc-number">3.</span> <span class="toc-text">호출패턴과 this 바인딩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%EB%B0%A9%EC%8B%9D%EA%B3%BC-%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98%EB%A5%BC-%ED%86%B5%ED%95%9C-%EA%B0%9D%EC%B2%B4-%EC%83%9D%EC%84%B1-%EB%B0%A9%EC%8B%9D%EC%9D%98-%EC%B0%A8%EC%9D%B4"><span class="toc-number">4.</span> <span class="toc-text">객체 리터럴 방식과 생성자 함수를 통한 객체 생성 방식의 차이</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%95%EC%A0%9C%EB%A1%9C-%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4-%EC%83%9D%EC%84%B1%ED%95%98%EA%B8%B0"><span class="toc-number">5.</span> <span class="toc-text">강제로 인스턴스 생성하기</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#call%EA%B3%BC-apply-%EB%A9%94%EC%84%9C%EB%93%9C%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EB%AA%85%EC%8B%9C%EC%A0%81%EC%9D%B8-this-%EB%B0%94%EC%9D%B8%EB%94%A9"><span class="toc-number">6.</span> <span class="toc-text">call과 apply 메서드를 이용한 명시적인 this 바인딩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%95%A8%EC%88%98%EB%A6%AC%ED%84%B4"><span class="toc-number">7.</span> <span class="toc-text">함수리턴</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B4%EB%8B%9D"><span class="toc-number">8.</span> <span class="toc-text">프로토타입 체이닝</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%EC%9D%98-%EB%91%90%EA%B0%80%EC%A7%80-%EC%9D%98%EB%AF%B8"><span class="toc-number">8.1.</span> <span class="toc-text">프로토타입의 두가지 의미</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EA%B0%9D%EC%B2%B4-%EB%A6%AC%ED%84%B0%EB%9F%B4-%EB%B0%A9%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%83%9D%EC%84%B1%EB%90%9C-%EA%B0%9D%EC%B2%B4%EC%9D%98-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B4%EB%8B%9D"><span class="toc-number">8.2.</span> <span class="toc-text">객체 리터럴 방식으로 생성된 객체의 프로토타입 체이닝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EC%83%9D%EC%84%B1%EC%9E%90-%ED%95%A8%EC%88%98%EB%A1%9C-%EC%83%9D%EC%84%B1%EB%90%9C-%EA%B0%9D%EC%B2%B4%EC%9D%98-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B4%EB%8B%9D"><span class="toc-number">8.3.</span> <span class="toc-text">생성자 함수로 생성된 객체의 프로토타입 체이닝</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B8%B0%EB%B3%B8-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%83%80%EC%9E%85-%ED%99%95%EC%9E%A5"><span class="toc-number">9.</span> <span class="toc-text">기본 데이터 타입 확장</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EB%A9%94%EC%84%9C%EB%93%9C%EC%99%80-this%EB%B0%94%EC%9D%B8%EB%94%A9"><span class="toc-number">10.</span> <span class="toc-text">프로토타입 메서드와 this바인딩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EB%94%94%ED%8F%B4%ED%8A%B8-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%EC%9D%80-%EB%8B%A4%EB%A5%B8-%EA%B0%9D%EC%B2%B4%EB%A1%9C-%EB%B3%80%EA%B2%BD%EC%9D%B4-%EA%B0%80%EB%8A%A5%ED%95%B4"><span class="toc-number">11.</span> <span class="toc-text">디폴트 프로토타입은 다른 객체로 변경이 가능해</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EA%B0%9D%EC%B2%B4%EC%9D%98-%ED%94%84%EB%A1%9C%ED%8D%BC%ED%8B%B0-%EC%9D%BD%EA%B8%B0%EB%82%98-%EB%A9%94%EC%84%9C%EB%93%9C%EB%A5%BC-%EC%8B%A4%ED%96%89%ED%95%A0-%EB%95%8C%EB%A7%8C-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85-%EC%B2%B4%EC%9D%B4%EB%8B%9D-%EB%8F%99%EC%9E%91"><span class="toc-number">12.</span> <span class="toc-text">객체의 프로퍼티 읽기나 메서드를 실행할 때만 프로토타입 체이닝 동작</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter05-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%99%80-%ED%81%B4%EB%A1%9C%EC%A0%80"><span class="toc-number"></span> <span class="toc-text">Chapter05 실행 컨텍스트와 클로저</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-%EA%B0%9C%EB%85%90"><span class="toc-number">1.</span> <span class="toc-text">실행 컨텍스트 개념</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8-%EC%83%9D%EC%84%B1%EA%B3%BC%EC%A0%95"><span class="toc-number">2.</span> <span class="toc-text">실행 컨텍스트 생성과정</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%8A%A4%EC%BD%94%ED%94%84-%EC%B2%B4%EC%9D%B8"><span class="toc-number">3.</span> <span class="toc-text">스코프 체인</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%A0%84%EC%97%AD-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%9D%98-%EC%8A%A4%EC%BD%94%ED%94%84-%EC%B2%B4%EC%9D%B8"><span class="toc-number">4.</span> <span class="toc-text">전역 실행 컨텍스트의 스코프 체인</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%95%A8%EC%88%98%EB%A5%BC-%ED%98%B8%EC%B6%9C%ED%95%9C-%EA%B2%BD%EC%9A%B0-%EC%83%9D%EC%84%B1%EB%90%98%EB%8A%94-%EC%8B%A4%ED%96%89-%EC%BB%A8%ED%85%8D%EC%8A%A4%ED%8A%B8%EC%9D%98-%EC%8A%A4%EC%BD%94%ED%94%84%EC%B2%B4%EC%9D%B8"><span class="toc-number">5.</span> <span class="toc-text">함수를 호출한 경우 생성되는 실행 컨텍스트의 스코프체인</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%ED%81%B4%EB%A1%9C%EC%A0%80"><span class="toc-number">6.</span> <span class="toc-text">클로저</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%ED%81%B4%EB%A1%9C%EC%A0%80%EC%9D%98-%EA%B0%9C%EB%85%90"><span class="toc-number">6.1.</span> <span class="toc-text">클로저의 개념</span></a></li></ol></li></ol></li></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/icon2.png"></div><div class="author-info__name text-center">Sungbin Hong</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">30</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">31</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">11</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/background2.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">devk0ng's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">Inside Javascript 정리 - 2 (함수, 체이닝)</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-01-20</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/javascript/">javascript</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="함수를-리턴하는-함수"><a href="#함수를-리턴하는-함수" class="headerlink" title="함수를 리턴하는 함수"></a>함수를 리턴하는 함수</h2><p>: 함수도 일급객체라고 했자나. 그래서 일반 값처럼 함수 자체를 리턴할 수도 있어. </p>
+<p>여기에서 오는 특징이 함수를 호출함과 동시에 다른 함수로 바꾸거나, 자기 자신을 재정의 하는 함수를 구현할수도 있게되는거야</p>
+<br>
+
+
+<h2 id="arguments-객체"><a href="#arguments-객체" class="headerlink" title="arguments 객체"></a>arguments 객체</h2><p>: 자바스크립트에는 arguments라는 객체가 있어. 자바스크립트 함수에는 인자의 갯수를 함수의 정의에서 정해준 것 보다 더 많이 주던 더 적게 주던 에러가 발생하지 않아!</p>
+<p>그게 바로 arguments 객체 덕분이야. arguments 객체는 함수를 호출할 때 넘긴 인자들이 배열 형태로 저장된 객체를 의미해. 특이한 것은 정확히는 <strong>유사 배열 객체</strong> 라는 점이지!</p>
+<span id="more"></span>
+<p>그렇기에 배열 메서드를 이용할 수 없음을 주의해야해. 이 arguments 객체를 이용하면 매개변수가 정확하게 정해지지 않은 함수를 구현하거나, 전달된 인자의 개수에 따라 서로 다른 처리를 해줘야 하는 함수를 개발하는 데 유용하게 사용할 수 있어.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"><span class="keyword">var</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span> ; i&lt;<span class="built_in">arguments</span>.length ; i++)&#123;</span><br><span class="line">  result += <span class="built_in">arguments</span>[i];</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이런식으로 말야!!</p>
+<br>
+
+
+<h2 id="호출패턴과-this-바인딩"><a href="#호출패턴과-this-바인딩" class="headerlink" title="호출패턴과 this 바인딩"></a>호출패턴과 this 바인딩</h2><p>: 함수를 호출할 때 기존 매개변수로 전달되는 인자값에 더해서 앞에서 설명한 arguments 객체와 this 인자가 함수내부로 암묵적으로 전달되어져!</p>
+<p>이 this 인자를 이해하는 것이 중요하데. 얘는 함수가 호출되는 방식(호출패턴)에 따라 this가 다른 객체를 참조하기 때문이야.</p>
+<ul>
+<li>객체의 메서드를 호출할 때 this 바인딩 : 객체의 프로퍼티가 함수인 경우 이를 메소드라고 한다 했자나. 이 메소드 내부 코드에서 사용된 this는 해당 메소드를 호출한 객체로 바인딩 되!</li>
+<li>함수를 호출할 때 this 바인딩 : 자바스크립트에서는 함수를 호출하면, 해당 함수 내부 코드에서 사용된 this는 <strong>전역 객체</strong>에 바인딩 되! 브라우저에서 자바스크립트를 이용할 경우 window가 전역객체가 되겠지. 여기서 알고 넘어가야 할 것은 내부함수를 호출하였을 때야. 특정 객체의 메소드 내부에 내부함수가 정의되어있다 생각해보자. 그 내부 함수에서 this를 사용할 경우 부모함수를 호출한 객체를 가르키지 않을까 생각할 수 있지만 그렇지 않아! 내부함수도 함수로 처리되기에 this로 접근할 경우 전역객체에 접근하게 되는거야. 이를 방지하고 싶다면 다른 참조변수를 이용하면 되는데 보통은 that 으로 이름을 많이 짓는데!! 그래서 부모 함수에서 that = this; 를 통해 that이 this를 참조하게 한후 그 내부 함수에서는 that을 통해 접근한다면 전역객체가 아닌 부모 함수를 호출한 객체에 접근할 수 있게 되는거지!!</li>
+<li>생성자 함수를 호출할 때 this 바인딩 : 기존 함수에 new 연산자를 붙여서 호출하면 해당 함수는 생성자 함수로 동작해. 이는 어떻게보면 일반 함수에 new를 붙여 호출하면 원치 않는 생성자 함수처럼 동작할 수 있다는거지. 그래서 자바스크립트 스타일 가이드에서는 생성자 함수로 특정함수가 정의되어 있음을 알리기 위해 함수 이름의 첫 문자를 대문자로 쓰기를 권해. 생성되는 과정은 다음과 같아. new 연산자로 함수를 생성자로 호출 -&gt; 빈 객체가 생성되고 이 객체는 this로 바인딩 -&gt; 함수 코드 내부에서 this 를 이용해 동적으로 프로퍼티나 메서드 생성 -&gt; 생성된 객체 리턴</li>
+</ul>
+<br>
+
+
+
+<h2 id="객체-리터럴-방식과-생성자-함수를-통한-객체-생성-방식의-차이"><a href="#객체-리터럴-방식과-생성자-함수를-통한-객체-생성-방식의-차이" class="headerlink" title="객체 리터럴 방식과 생성자 함수를 통한 객체 생성 방식의 차이"></a>객체 리터럴 방식과 생성자 함수를 통한 객체 생성 방식의 차이</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//객체 리터럴 방식으로 foo 객체 생성</span></span><br><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line"><span class="attr">name</span> : <span class="string">&#x27;foo&#x27;</span>,</span><br><span class="line"><span class="attr">age</span> : <span class="number">35</span>,</span><br><span class="line"><span class="attr">gender</span> : <span class="string">&#x27;man&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//생성자 함수</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,gender,position</span>)</span>&#123;</span><br><span class="line"><span class="built_in">this</span>.name=name;</span><br><span class="line"><span class="built_in">this</span>.age=age;</span><br><span class="line"><span class="built_in">this</span>.gender=gender;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar = <span class="keyword">new</span> Person(<span class="string">&#x27;bar&#x27;</span>,<span class="number">33</span>,<span class="string">&#x27;woman&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> baz = <span class="keyword">new</span> Person(<span class="string">&#x27;baz&#x27;</span>,<span class="number">32</span>,<span class="string">&#x27;man&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>위의 차이에서 보이듯이 객체 리터럴 방식은 같은 형태의 객체를 재생성 할 수 없으나 생성자 함수를 이용한 경우에는 가능하다.</p>
+<p>그리고 가장 큰 차이점은 <strong>프로토타입 객체</strong>에 존재해! 객체 리터럴 방식의 경우 자신의 프로토타입 객체는 Object이나 생성자 함수 방식의 경우는 Person이야!! 그 차이는 자바스크립트 객체 생성 규칙에서 와. 자바스크립트 객체는 자신을 생성한 생성자 함수의 prototype 프로퍼티가 가리키는 객체를 자신의 프로토타입 객체로 설정해. 그렇기에 객체 리터럴 방식에서는 객체 생성자 함수가 Object(), 생성자 함수 방식의 경우에는 생성자 함수 자체이기에 위와 같은 차이를 보이게 되는거지!</p>
+<br>
+
+
+<h2 id="강제로-인스턴스-생성하기"><a href="#강제로-인스턴스-생성하기" class="headerlink" title="강제로 인스턴스 생성하기"></a>강제로 인스턴스 생성하기</h2><p>: 위와 같은 문제가 발생하기에 널리 사용되는 한가지 패턴이 있어.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params">arg</span>)</span>&#123;</span><br><span class="line"><span class="keyword">if</span>(!(<span class="built_in">this</span> <span class="keyword">instanceof</span> A))</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> A(arg);</span><br><span class="line"><span class="built_in">this</span>.value = arg ? arg : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>이런식으로 정의하게 될 경우 new로 호출된 것이 아니더라도 new로 A를 호출하여 반환하게 되어있어서 문제가 발생히자 않게 되는거야.</p>
+<p>if (!(this instanceof arguments.calle)) 이렇게 많이 쓰이기도 해. arguents.callee가 곧 호출된 함수를 가르키거든!</p>
+<br>
+
+
+
+<h2 id="call과-apply-메서드를-이용한-명시적인-this-바인딩"><a href="#call과-apply-메서드를-이용한-명시적인-this-바인딩" class="headerlink" title="call과 apply 메서드를 이용한 명시적인 this 바인딩"></a>call과 apply 메서드를 이용한 명시적인 this 바인딩</h2><p>: call 과 apply는 Function.prototype 객체의 메서드로 모든 함수는 function.apply(thisArg, argArray) 의 방식으로 메서드를 호출하는 것이 가능해! (call도 마찬가지!!)</p>
+<p>두 함수 모두 기능은 같으나 매개변수가 차이가 있는거야. </p>
+<p>apply 함수에 대해 먼저 보자면 thisArg는 apply() 메서드를 호출한 함수 내부에서 사용한 this에 바인딩 할 객체를 가리켜!! 즉 한마디로 첫번째 인자로 넘긴 객체가 this로 명시적으로 바인딩 되는거지. argArray 인자는 함수를 호출할 때 넘길 인자들의 배열을 가리켜. 즉 정리하자면! apply() 메서드는 두번째 인자인 argArray 배열을 자신을 호출한 함수의 인자로 사용하되, 임 하수 내부에서 사용된 this 는 첫 번째 인자인 thisArg 객체로 바인딩해서 함수를 호출하는 기능을 하는 것이야.</p>
+<p>call 메서드가 다른 점이 있다면 apply 함수에서는 argArray 즉 두번째 인자를 배열로 넘겨주었다면 call 함수에서는 배열이 아닌 각각의 값을 넘겨주는게 차이야!</p>
+<p>그럼 어디에 쓰냐?? 대표적으로 사용되는 곳이 arguments 객체와 같은 유사 배열 객체에서 배열 메서드를 사용하는 경우야!!</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myFunction</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.slice.apply(<span class="built_in">arguments</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(args);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>위와 같은 function을 보자. arguments는 앞서 말했듯이 유사배열객체야. 하지만 Array.prototype.slice.apply 메서드를 통해 arguments를 slice할 수 있어. 한마디로 Array.prototype.slice() 메서드를 호출하라. 이때 this는 arguments 객체로  바인딩해라! 라고 생각할 수 있어. 그렇기에 결과는 배열로 출력이 되게되는거지. slice(start,end) 메서드는 참고로 start부터 end-1 지점까지 자르는 메서드이며 아무 인자도 넣지 않을경우 그대로 복사한 배열을 반환해.</p>
+<br>
+
+
+
+<h2 id="함수리턴"><a href="#함수리턴" class="headerlink" title="함수리턴"></a>함수리턴</h2><p>: 자바스크립트 함수는 항상 리턴값을 반환해!! return 문을 사용하지 않더라도 아래와 같은 규칙으로 전달하게 되어있어!!</p>
+<ol>
+<li>일반 함수나 메서드는 리턴 값을 지정하지 않을 경우, undefined 값이 리턴되는거야</li>
+<li>생성자 함수에서 리턴값을 지정하지 않을 경우 생성된 객체가 리턴되는거야 ( 생성자 함수의 리턴값이 객체가 아닌 불린,숫자,문자열일 경우 이를 무시하고 this로 바인딩된 객체 반환해)</li>
+</ol>
+<br>
+
+
+
+<h2 id="프로토타입-체이닝"><a href="#프로토타입-체이닝" class="headerlink" title="프로토타입 체이닝"></a>프로토타입 체이닝</h2><h3 id="프로토타입의-두가지-의미"><a href="#프로토타입의-두가지-의미" class="headerlink" title="프로토타입의 두가지 의미"></a>프로토타입의 두가지 의미</h3><p>: 자바스크립트의 모든 객체는 자신의 부모인 프로토타입 객체를 가리키는 참조 링크 형태의 숨겨진 프로퍼티가 있고 이를 암묵적 프로토타입 링크라고 부르며 이러한 링크는 모든 객체의 Prototype 프로퍼티에 저장된다고 했어. 여기서 주의해야 할 것은! 바로 함수 객체의 prototype 프로퍼티와 객체의 숨은 Prototype 링크를 구분할 줄 알아야해.</p>
+<p><strong>자바스크립트에서 모든 객체는 자신을 생성한 생성자 함수의 prototype 프로퍼티가 가리키는 프로토타입 객체를 자신의 부모 객체로 설정하는 Prototype 링크로 연결해</strong></p>
+<p>prototype 프로퍼티는 함수의 입장에서 자신과 링크된 프로토타입 객체를 가리키고 있으며, 이에 반해 Prototype 링크는 객체의 입장에서 자신의 부모 객체인 프로토타입 객체를 내부의 숨겨진 링크로 가리키고 있는거야. 결국은 자바스크립트에서 객체를 생성하는 건 생성자 함수의 역할이나, 생성된 객체의 실제 부모 역할을 하는 건 생성자 자신이 아닌 생성자의 prototype 프로퍼티가 가리키는 프로토타입 객체인거지!!</p>
+<br>
+
+
+
+<h3 id="객체-리터럴-방식으로-생성된-객체의-프로토타입-체이닝"><a href="#객체-리터럴-방식으로-생성된-객체의-프로토타입-체이닝" class="headerlink" title="객체 리터럴 방식으로 생성된 객체의 프로토타입 체이닝"></a>객체 리터럴 방식으로 생성된 객체의 프로토타입 체이닝</h3><p>: 자바스크립트에서 객체는 자기 자신의 프로퍼티뿐만 아니라, 자신의 부모 역할을 하는 프로토타입 객체의 프로퍼티 또한 마치 자신의 것처럼 접근하는 것이 가능해! 그리고 이를 가능케 하는 것이 바로 프로토타입 체이닝인거쥐!!</p>
+<p>그럼 프로토타입 체이닝이 뭐냐?? -&gt; 자바스크립트에서 특정 개체의 프로퍼티나 메서드에 접근하려고 할 때, 해당 객체에 접근하려는 프로퍼티 또는 메서드가 없다면 Prototype 링크를 따라 자신의 부모 역할을 하는 프로토타입 객체의 프로퍼티를 차례대로 검색하는 것을 말해.</p>
+<br>
+
+
+
+<h3 id="생성자-함수로-생성된-객체의-프로토타입-체이닝"><a href="#생성자-함수로-생성된-객체의-프로토타입-체이닝" class="headerlink" title="생성자 함수로 생성된 객체의 프로토타입 체이닝"></a>생성자 함수로 생성된 객체의 프로토타입 체이닝</h3><p>: 그 문장 기억하쥐? “자바스크립트에서 모든 객체는 자신을 생성한 생성자 함수의 prototype 프로퍼티가 가리키는 객체를 자신의 프로토타입 객체(부모객체)로 취급한다” </p>
+<p>그럼 다 한거야!! 물론 함수 리터럴 방식으로 만들경우 Prototype링크로 연결되어 있는것은 Object.prototype이고 생성자 함수를 이용해서 만들 경우 function.prototype을 가리키고 있겠지. 하지만 이 function.prototype은 프로퍼티로 constructor 프로퍼티만 있어. 하지만 이 녀석도 객체이기에 Prototype링크로 Object.prototype이 있고 그렇기에 한번 더 타고 가서 Object 객체에 존재하는 메소드를 사용할 수 있게 되는거야!! ( Object.prototype이 프로토타입 체이닝의 종점이야 )</p>
+<br>
+
+
+
+<h2 id="기본-데이터-타입-확장"><a href="#기본-데이터-타입-확장" class="headerlink" title="기본 데이터 타입 확장"></a>기본 데이터 타입 확장</h2><p>: 자바스크립트의 숫자,, 문자열, 배열 등에서 사용되는 표준 메서드들의 경우, 이들의 프로토타입인 Number.prototype, String.prototype, Array.prototype 등에 정의되어 있어. 물론 이러한 기본 내장 프로토타입 객체 또한 Object.prototype을 자신의 프로토타입으로 가지고 있어서 프로토타입 체이닝으로 연결되지! 만약 String.prototype 객체에 사용자가 정의한 메서드를 추가하면 이 메서드는 일반 문자열 표준 메서드처럼 모든 문자열에서 접근 가능해지는거야. 마치 문자열 API처럼 사용할 수 있게 되는거지!</p>
+<br>
+
+
+
+<h2 id="프로토타입-메서드와-this바인딩"><a href="#프로토타입-메서드와-this바인딩" class="headerlink" title="프로토타입 메서드와 this바인딩"></a>프로토타입 메서드와 this바인딩</h2><p>: 프로토타입 객체는 메서드를 가질 수 있어. 근데 이때 그럼 메서드 내에 this가 있을 경우 어디에 바인딩 될까?? 그건 앞서 공부했던 규칙과 똑같이 객체에서 매서드를 호출하면 메서드 내의 this는 그 메서드를 호출한 객체에 바인딩 되는거야!!</p>
+<br>
+
+
+
+<h2 id="디폴트-프로토타입은-다른-객체로-변경이-가능해"><a href="#디폴트-프로토타입은-다른-객체로-변경이-가능해" class="headerlink" title="디폴트 프로토타입은 다른 객체로 변경이 가능해"></a>디폴트 프로토타입은 다른 객체로 변경이 가능해</h2><p>: 디폴트 프로토타입 객체는 함수가 생성될 때 같이 생성되며, 함수의 prototype 프로퍼티에 연결되!! 자바스크립트에서는 이렇게 함수를 생성할 때 해당 함수와 연결되는 디폴트 프로토타입 객체를 다른 일반 객체로 변경하는 것이 가능해!! -&gt; 이러한 특징을 이용해서 객체지향의 상속을 구현하는거쥐!!</p>
+<p>주의할 것은 생성자 함수의 프로토타입 객체가 변경되면, 변경된 시점 이후에 생성된 객체들은 변경된 프로토타입 객체로 Prototype 링크를 연결한다는 걸 명심해야해!! 물론 변경 전에 생성된 객체들은 기존 프로토타입 객체로의 Prototype 링크를 유지하겠지</p>
+<br>
+
+
+
+<h2 id="객체의-프로퍼티-읽기나-메서드를-실행할-때만-프로토타입-체이닝-동작"><a href="#객체의-프로퍼티-읽기나-메서드를-실행할-때만-프로토타입-체이닝-동작" class="headerlink" title="객체의 프로퍼티 읽기나 메서드를 실행할 때만 프로토타입 체이닝 동작"></a>객체의 프로퍼티 읽기나 메서드를 실행할 때만 프로토타입 체이닝 동작</h2><p>: 이는 너무 당연한 설명이나 그래!! 왜냐?? 객체에 없는 프로퍼티에 쓰기를 진행할 경우 해당 프로퍼티를 추가하고 쓰기 작업을 하기 때문이지.</p>
+<br>
+
+
+
+<h1 id="Chapter05-실행-컨텍스트와-클로저"><a href="#Chapter05-실행-컨텍스트와-클로저" class="headerlink" title="Chapter05 실행 컨텍스트와 클로저"></a>Chapter05 실행 컨텍스트와 클로저</h1><br>
+
+<h2 id="실행-컨텍스트-개념"><a href="#실행-컨텍스트-개념" class="headerlink" title="실행 컨텍스트 개념"></a>실행 컨텍스트 개념</h2><p>: call stack 알자나. 함수 호출할 때 해당 함수의 호출정보가 쌓여있는 스택! 실행 컨텍스트는 이 콜 스택에 들어가는 실행 정보 하나와 비슷하다고 생각하면 되. <strong>실행 가능한 자바스크립트 코드 블록이 실행되는 환경</strong>이라고 생각할 수 있고 이 컨텍스트 안에 실행에 필요한 여러가지 정보가 담겨있는거지.</p>
+<br>
+
+
+
+<h2 id="실행-컨텍스트-생성과정"><a href="#실행-컨텍스트-생성과정" class="headerlink" title="실행 컨텍스트 생성과정"></a>실행 컨텍스트 생성과정</h2><ol>
+<li>활성 객체 생성 : 실행 컨텍스트가 생성되면 자바스크립트 엔진은 해당 컨텍스트에서 실행에 필요한 여러가지 정보를 담을 객체를 생성하는데 이를 활성 객체 라고해. 이 객체에 매개변수, 사용자 정의 변수, 객체 등을 저장하고 새로 만들어진 컨텍스트로 접근 가능하게 되어있어.</li>
+<li>arguments 객체 생성 : arguments 객체를 생성해. 앞서 만들어진 활성 객체는 arguments 프로퍼티로 이 arguments 객체를 참조하는거야.</li>
+<li>스코프 정보 생성 : 현재 컨텍스트의 유효 범위를 나타내는 스코프 정보를 생성해. 이 스코프 정보는 현재 실행 중인 실행 컨텍스트 안에서 연결 리스트와 유사한 형식으로 만들어지지. 이 연결리스트를 활용해서 현재 컨텍스트에서 특정 변수에 접근하는 것이 가능하고 만약 찾지 못하면 에러 검출하고 하는거지. 이 리스트를 바로 스코프 체인이라고 해.</li>
+<li>변수 생성 : 현재 실행 컨텍스트 내부에서 사용되는 지역 변수의 생성이 이루어져. (참고로 변수객체랑 활성객체랑 같은거야)</li>
+<li>this 바인딩 : 앞서 공부했자나. 만약 참조하는 객체 없으면 전역 객체 참조해.</li>
+<li>코드 실행 : 이렇게 하나의 실행 컨텍스트가 생성되고, 변수 객체가 만들어진 후에 코드에 있는 여러가지 표현식의 실행이 이루어져. 아까 4에서 진행했던 변수들에 있어 초기에는 undefined로 되어 있으나 코드 실행 단계에서 이 undefined 대신에 값이 할당되어져. (참고로 전역 실행 컨텍스트는 arguments 객체가 없고 전역 객체 하나만을 포함하는 스코프체인이 있어. 그리고 여기서 변수 객체가 곧 전역 객체이고 전역으로 선언된 함수와 변수가 전역 객체의 프로퍼티가 되는거지)</li>
+</ol>
+<p>(이 부분은 후에 책을 한번 더 보거나 추가적인 자료 찾아봐!)</p>
+<br>
+
+
+
+<h2 id="스코프-체인"><a href="#스코프-체인" class="headerlink" title="스코프 체인"></a>스코프 체인</h2><p>: 자바스크립트도 다른 언어처럼 유효범위가 있어. C의 경우 { }가 유효범위의 기준이지. 그러나 자바스크립트에서는 { }와 같은 구문은 유효범위가 없어. 오직 함수만이 유효범위의 한 단위가 되는거야! 그리고 이 유효범위를 나타내는 스코프가 scope 프로퍼티로 각 함수 객체 내에서 연결리스트 형식으로 관리되는데 이를 스코프체인이라고 하는거지!</p>
+<p>그래서 각각의 함수는 scope 프로퍼티로 자신이 생성된 실행 컨텍스트의 스코프 체인을 참조해. 그리고 함수가 실행되는 순간 실행 컨텍스트가 만들어지고, 이 실행 컨텍스트는 실행된 함수의 scope프로퍼티를 기반으로 새로운 스코프체인을 만드는거야.</p>
+<br>
+
+
+
+<h2 id="전역-실행-컨텍스트의-스코프-체인"><a href="#전역-실행-컨텍스트의-스코프-체인" class="headerlink" title="전역 실행 컨텍스트의 스코프 체인"></a>전역 실행 컨텍스트의 스코프 체인</h2><p>: 전역 실행 컨텍스트 단 하나만 실행되고 있어 참조할 상위 컨텍스트가 없자나?? 그래서 결국은 자신이 최상위에 위치하는 변수 객체니까 스코프체인은 자기 자신만을 가리키게 되는거지.</p>
+<br>
+
+
+
+<h2 id="함수를-호출한-경우-생성되는-실행-컨텍스트의-스코프체인"><a href="#함수를-호출한-경우-생성되는-실행-컨텍스트의-스코프체인" class="headerlink" title="함수를 호출한 경우 생성되는 실행 컨텍스트의 스코프체인"></a>함수를 호출한 경우 생성되는 실행 컨텍스트의 스코프체인</h2><p>: 함수 객체가 생성될 때, 그 함수 객체의 scope 프로퍼티는 현재 실행되는 컨텍스트의 변수 객체에 있는 scope를 그대로 가져. </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> var1 = <span class="number">1</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(var1);</span><br><span class="line">&#125;</span><br><span class="line">func();</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>위 예제를 실행하면 우선 전역 실행 컨텍스트가 생성되겠지. 그리고 func() 함수 객체가 만들어지지. 이 func 함수객체의 scope가 결국 전역 변수 객체가 되는거라 이말이지.</p>
+<p>그런다음 밑에 계속 실행하면 func() 함수를 실행하네? 그럼 새로운 컨텍스트가 만들어지겠지. 이를 func 컨텍스트라고 해보자. 그럼 func 컨텍스트의 스코프 체인은 어떻게 될까?</p>
+<p>실행된 함수의 scope 프로퍼티를 우선 그대로 복사해. 그리고 현재 생성된 변수 객체를 복사한 스코프 체인의 맨 앞에 추가하는거야!! 그래서 결국은 이렇게 되는거지</p>
+<p>-&gt; 스코프 체인 = 현재 실행 컨텍스트의 변수 객체 + 상위 컨텍스트의 스코프 체인</p>
+<p>그래서 이렇게 스코프 체인이 만들어지면 이를 바탕으로 식별자 인식을 하는거야. 스코프 체인의 첫번째 변수 객체부터 찾아서 없으면 다음 객체로 이동하면서 찾는거지!!<br>(참고로 this는 식별자가 아닌 키워드로 분류되기에 스코프체인의 참조 없이 접근할 수 있어!)</p>
+<br>
+
+
+
+<h2 id="클로저"><a href="#클로저" class="headerlink" title="클로저"></a>클로저</h2><h3 id="클로저의-개념"><a href="#클로저의-개념" class="headerlink" title="클로저의 개념"></a>클로저의 개념</h3><p>: 간단하게 얘기하자면 이미 생명 주기가 끝난 외부 함수의 변수를 참조하는 함수라고 생각하면 돼. 그리고 클로저로 참조되는 외부 변수를 자유 변수(free variable)이라고 해.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outerFunc</span>(<span class="params">arg1, arg2</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> local = <span class="number">8</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">innerFunc</span>(<span class="params">innerArg</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log((arg1+arg2)/(innerArg+local));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> exam1 = outerFunc(<span class="number">2</span>,<span class="number">4</span>);</span><br><span class="line">exam1(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>위 코드를 보자. 여기서 outerFunc()가 실행되면서 생성되는 변수 객체가 스코프 체인에 들어가게 되고, 이 스코프 체인은 innerFunc의 스코프 체인으로 참조되겠지. 그렇기에 outerFunc()함수가 종료되었찌만, 여전히 내부함수 innerFunc의 scope로 참조되므로 garbage collection의 대상이 되지 않고 접근가능하게 살아있을 수 있는거야. 그렇기에 exam1(n)을 호출하여 innerFunc()에서 변수 local에 참조가 가능한거지. 클로저는 이렇게 </p>
+</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/javascript/">javascript</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2022/01/20/inside_javascript1/"><span>Inside Javascript 정리 - 1</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: 'a9fadaa0c71177598341',
+  clientSecret: '677df1a9ceea07288fecd99348d15054f5659172',
+  repo: 'devk0ng.github.io',
+  owner: 'devk0ng',
+  admin: 'devk0ng',
+  id: md5(decodeURI(location.pathname)),
+  language: 'en'
+})
+gitalk.render('gitalk-container')</script></div></div><footer class="footer-bg" style="background-image: url(/img/background2.png)"><div class="layout" id="footer"><div class="copyright">&copy;2021 - 2022 By Sungbin Hong</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="external nofollow noopener noreferrer" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/algolia.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
