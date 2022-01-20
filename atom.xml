@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-01-19T16:39:38.502Z</updated>
+  <updated>2022-01-20T04:38:13.350Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Inside Javascript 정리 - 1</title>
+    <link href="https://devk0ng.github.io/2022/01/20/inside_javascript1/"/>
+    <id>https://devk0ng.github.io/2022/01/20/inside_javascript1/</id>
+    <published>2022-01-20T04:35:35.617Z</published>
+    <updated>2022-01-20T04:38:13.350Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Chapter-03-자바스크립트-데이터-타입과-연산자&quot;&gt;&lt;a href=&quot;#Chapter-03-자바스크립트-데이터-타입과-연산자&quot; class=&quot;headerlink&quot; title=&quot;Chapter 03 자바스크립트 데이터 타입과</summary>
+        
+      
+    
+    
+    
+    <category term="javascript" scheme="https://devk0ng.github.io/categories/javascript/"/>
+    
+    
+    <category term="javascript" scheme="https://devk0ng.github.io/tags/javascript/"/>
+    
+  </entry>
   
   <entry>
     <title>git의 원리에 대해 알아보자 (add, commit, status)</title>
