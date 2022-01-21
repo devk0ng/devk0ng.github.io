@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-01-20T04:48:54.668Z</updated>
+  <updated>2022-01-21T01:53:45.292Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring Web Mvc Interceptors란</title>
+    <link href="https://devk0ng.github.io/2022/01/21/spring_interceptor/"/>
+    <id>https://devk0ng.github.io/2022/01/21/spring_interceptor/</id>
+    <published>2022-01-21T01:23:02.394Z</published>
+    <updated>2022-01-21T01:53:45.292Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Spring-Web-MVC-Interceptors&quot;&gt;&lt;a href=&quot;#Spring-Web-MVC-Interceptors&quot; class=&quot;headerlink&quot; title=&quot;[Spring Web MVC] Interceptors&quot;&gt;&lt;/a&gt;[Spring Web MVC] Interceptors&lt;/h1&gt;&lt;h1 id=&quot;인터셉터란&quot;&gt;&lt;a href=&quot;#인터셉터란&quot; class=&quot;headerlink&quot; title=&quot;인터셉터란?&quot;&gt;&lt;/a&gt;인터셉터란?&lt;/h1&gt;&lt;p&gt;아래 그림처럼 client의 요청이 controller로 가기 전에 중간에 요청을 가로채서 검사하는 모듈이야. 정확히는 컨트롤러의 핸들러를 호출하기 전과 후에 요청과 음답을 참조하거나 가공할 수 있는 녀석이라고 보면 될 거 같애&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="spring" scheme="https://devk0ng.github.io/categories/spring/"/>
+    
+    
+    <category term="spring" scheme="https://devk0ng.github.io/tags/spring/"/>
+    
+    <category term="spring wev mvc" scheme="https://devk0ng.github.io/tags/spring-wev-mvc/"/>
+    
+    <category term="interceptors" scheme="https://devk0ng.github.io/tags/interceptors/"/>
+    
+  </entry>
   
   <entry>
     <title>Inside Javascript 정리 - 2 (함수, 체이닝)</title>
