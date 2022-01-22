@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-01-21T01:53:45.292Z</updated>
+  <updated>2022-01-22T19:00:52.786Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>진정한 rest란?</title>
+    <link href="https://devk0ng.github.io/2022/01/23/real_rest/"/>
+    <id>https://devk0ng.github.io/2022/01/23/real_rest/</id>
+    <published>2022-01-22T18:59:11.040Z</published>
+    <updated>2022-01-22T19:00:52.786Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;진정한-REST란&quot;&gt;&lt;a href=&quot;#진정한-REST란&quot; class=&quot;headerlink&quot; title=&quot;진정한 REST란?&quot;&gt;&lt;/a&gt;진정한 REST란?&lt;/h1&gt;&lt;h1 id=&quot;REST란&quot;&gt;&lt;a href=&quot;#REST란&quot; class=&quot;headerlink&quot; title=&quot;REST란?&quot;&gt;&lt;/a&gt;REST란?&lt;/h1&gt;&lt;p&gt;Representational State Transfer의 줄임말로 Roy T. Fielding에 의해 만들어진 개념이다!&lt;/p&gt;
+&lt;p&gt;이는 분산 하이퍼 미디어 시스템을(웹) 위한 아키텍쳐 스타일이고 제약조건의 집합이라고 볼 수 있어!!&lt;/p&gt;
+&lt;p&gt;즉 rest를 만족하기 위한 조건들이 존재하고 이를 만족하였을 때 rest 구조를 따른다라고 이야기할 수 있는거지&lt;/p&gt;
+&lt;p&gt;각 제약조건들의 핵심은 결국 interoperability를 만족하자! 라고 생각할 수 있어. 즉 상호운영성을 가지게 하자라는거지. &lt;/p&gt;
+&lt;p&gt;조금 더 깊이 이해하기위해 발생하게 된 역사를 한번 보자!&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="rest" scheme="https://devk0ng.github.io/categories/rest/"/>
+    
+    
+    <category term="rest" scheme="https://devk0ng.github.io/tags/rest/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring Web Mvc Interceptors란</title>

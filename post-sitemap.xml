@@ -9,6 +9,14 @@
 
 
     <url>
+        <loc>https://devk0ng.github.io/2022/01/23/real_rest/</loc>
+        <lastmod>2022-01-22T19:00:52.786Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://devk0ng.github.io/2022/01/21/spring_interceptor/</loc>
         <lastmod>2022-01-21T01:53:45.292Z</lastmod>
         <changefreq>weekly</changefreq>
