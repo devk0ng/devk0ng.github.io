@@ -17,22 +17,22 @@
 
 <h2 id="HEAD-파일"><a href="#HEAD-파일" class="headerlink" title="HEAD 파일"></a>HEAD 파일</h2><p>처음 git init 명령어를 실행할 경우 HEAD 파일이 생겨.</p>
 <p>.git 디렉토리 내부에 생성된 것을 확인할 수 있어.</p>
-<img width="292" alt="스크린샷 2022-02-06 오후 11 40 27" src="https://user-images.githubusercontent.com/31160622/152688895-2a3ca8c0-6112-429d-983f-8c4272e45446.png">
-
-<p>해당 파일의 내용을 열어보면</p>
 <span id="more"></span>
 
-<img width="290" alt="스크린샷 2022-02-06 오후 11 42 13" src="https://user-images.githubusercontent.com/31160622/152688910-e71111e5-33e1-4ce0-9ae1-aff5d77c17bb.png">
+<img src="https://user-images.githubusercontent.com/31160622/152688895-2a3ca8c0-6112-429d-983f-8c4272e45446.png">
+
+<p>해당 파일의 내용을 열어보면</p>
+<img src="https://user-images.githubusercontent.com/31160622/152688910-e71111e5-33e1-4ce0-9ae1-aff5d77c17bb.png">
 
 <p>이렇게 ref:refs/heads/main 이라는 내용을 확인할 수 있어.</p>
 <p>지금부터는 main branch에서 작업을 한다 생각하고 이후 내용을 써내려가보자.</p>
 <p><br><br></p>
 <h2 id="refs-head-main-object"><a href="#refs-head-main-object" class="headerlink" title="refs/head/main object"></a>refs/head/main object</h2><p>한번이라도 커밋을 할 경우 refs/heads/main 이라는 오브젝트가 생겨.</p>
 <p>그리고 이 오브젝트 내용을 살펴보면 방금 커밋한 내용을 담고있는 개체에 대한 참조하는 값(id)가 들어있어!!</p>
-<img width="325" alt="스크린샷 2022-02-06 오후 11 48 01" src="https://user-images.githubusercontent.com/31160622/152688925-b31d8596-ce26-4c0c-9d10-9abf73fdfc70.png">
+<img src="https://user-images.githubusercontent.com/31160622/152688925-b31d8596-ce26-4c0c-9d10-9abf73fdfc70.png">
 
 <p>위의 e32~~~ 는 테스트를 위해 방금 커밋한 내용을 가리키는 id야!!</p>
-<img width="524" alt="스크린샷 2022-02-06 오후 11 50 14" src="https://user-images.githubusercontent.com/31160622/152688937-19d429e0-b594-481a-8024-34937a352cad.png">
+<img src="https://user-images.githubusercontent.com/31160622/152688937-19d429e0-b594-481a-8024-34937a352cad.png">
 
 <p>해당 내용을 읽어보면 방금 커밋으로 인해 생성된 object를 가리키고 있음을 알 수 있지!!</p>
 <p><br><br></p>
@@ -58,7 +58,7 @@
 <p>어떻게 할 수 있을까??</p>
 <ol>
 <li><p>logs/refs/heads/branch_file의 내용을 확인하면 해당 branch의 history 즉 사건들에 대한 기록을 볼 수 있어.</p>
- <img width="1325" alt="스크린샷 2022-02-07 오전 12 22 46" src="https://user-images.githubusercontent.com/31160622/152688982-2c8369fa-355e-442b-8304-f6239e9a0572.png">
+ <img src="https://user-images.githubusercontent.com/31160622/152688982-2c8369fa-355e-442b-8304-f6239e9a0572.png">
 
 <p> 위의 내용을 바탕으로 복구하고자하는 commit object의 id를 이용해 reset 명령어를 사용할 경우 복구할 수 있는거지</p>
 </li>

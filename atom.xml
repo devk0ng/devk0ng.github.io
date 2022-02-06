@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-02-06T16:01:11.890Z</updated>
+  <updated>2022-02-06T16:04:53.689Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -21,16 +21,13 @@
     <link href="https://devk0ng.github.io/2022/02/07/git_branch_reset/"/>
     <id>https://devk0ng.github.io/2022/02/07/git_branch_reset/</id>
     <published>2022-02-06T15:50:22.005Z</published>
-    <updated>2022-02-06T16:01:11.890Z</updated>
+    <updated>2022-02-06T16:04:53.689Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;git-branch-reset의-원리&quot;&gt;&lt;a href=&quot;#git-branch-reset의-원리&quot; class=&quot;headerlink&quot; title=&quot;git branch, reset의 원리&quot;&gt;&lt;/a&gt;git branch, reset의 원리&lt;/h1&gt;&lt;h1 id=&quot;git-branch의-원리&quot;&gt;&lt;a href=&quot;#git-branch의-원리&quot; class=&quot;headerlink&quot; title=&quot;git branch의 원리&quot;&gt;&lt;/a&gt;git branch의 원리&lt;/h1&gt;&lt;br/&gt;
 
 &lt;h2 id=&quot;HEAD-파일&quot;&gt;&lt;a href=&quot;#HEAD-파일&quot; class=&quot;headerlink&quot; title=&quot;HEAD 파일&quot;&gt;&lt;/a&gt;HEAD 파일&lt;/h2&gt;&lt;p&gt;처음 git init 명령어를 실행할 경우 HEAD 파일이 생겨.&lt;/p&gt;
-&lt;p&gt;.git 디렉토리 내부에 생성된 것을 확인할 수 있어.&lt;/p&gt;
-&lt;img width=&quot;292&quot; alt=&quot;스크린샷 2022-02-06 오후 11 40 27&quot; src=&quot;https://user-images.githubusercontent.com/31160622/152688895-2a3ca8c0-6112-429d-983f-8c4272e45446.png&quot;&gt;
-
-&lt;p&gt;해당 파일의 내용을 열어보면&lt;/p&gt;</summary>
+&lt;p&gt;.git 디렉토리 내부에 생성된 것을 확인할 수 있어.&lt;/p&gt;</summary>
     
     
     
