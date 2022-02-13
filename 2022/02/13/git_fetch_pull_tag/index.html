@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="git pull, fetch, tag의 원리"><meta name="keywords" content="git"><meta name="author" content="Sungbin Hong"><meta name="copyright" content="Sungbin Hong"><title>git pull, fetch, tag의 원리 | devk0ng's blog</title><link rel="shortcut icon" href="/img/icon2.png"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="canonical" href="https://devk0ng.github.io/2022/02/13/git_fetch_pull_tag/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3745226285485669',
+  enable_page_level_ads: 'true'
+});
+</script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"LK74G203SS","apiKey":"82b60d701a0005a22c7f6e2476b74ac1","indexName":"myblog","hits":{"per_page":10},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="devk0ng's blog" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#git-pull-fetch-tag%EC%9D%98-%EC%9B%90%EB%A6%AC"><span class="toc-number">1.</span> <span class="toc-text">git pull, fetch, tag의 원리</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-remote-repository-%EC%9B%90%EA%B2%A9%EC%A0%80%EC%9E%A5%EC%86%8C"><span class="toc-number">2.</span> <span class="toc-text">git remote repository (원격저장소)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9B%90%EA%B2%A9%EC%A0%80%EC%9E%A5%EC%86%8C%EB%9E%80"><span class="toc-number">2.1.</span> <span class="toc-text">원격저장소란?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EC%9B%90%EA%B2%A9-%EC%A0%80%EC%9E%A5%EC%86%8C%EC%9D%98-%EC%9B%90%EB%A6%AC"><span class="toc-number">2.2.</span> <span class="toc-text">원격 저장소의 원리</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-pull-vs-git-fetch"><span class="toc-number">3.</span> <span class="toc-text">git pull vs git fetch</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-pull"><span class="toc-number">3.1.</span> <span class="toc-text">git pull</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-fetch"><span class="toc-number">3.2.</span> <span class="toc-text">git fetch</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#git-tag"><span class="toc-number">4.</span> <span class="toc-text">git tag</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#git-tag%EB%9E%80"><span class="toc-number">4.1.</span> <span class="toc-text">git tag란?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-tag%EC%9D%98-%EC%9B%90%EB%A6%AC"><span class="toc-number">4.2.</span> <span class="toc-text">git tag의 원리</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/icon2.png"></div><div class="author-info__name text-center">Sungbin Hong</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">35</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">34</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">12</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/background2.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">devk0ng's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">git pull, fetch, tag의 원리</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-02-13</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/git/">git</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="git-pull-fetch-tag의-원리"><a href="#git-pull-fetch-tag의-원리" class="headerlink" title="git pull, fetch, tag의 원리"></a>git pull, fetch, tag의 원리</h1><h1 id="git-remote-repository-원격저장소"><a href="#git-remote-repository-원격저장소" class="headerlink" title="git remote repository (원격저장소)"></a>git remote repository (원격저장소)</h1><p><br><br></p>
+<h2 id="원격저장소란"><a href="#원격저장소란" class="headerlink" title="원격저장소란?"></a>원격저장소란?</h2><p>원격저장소는 현재 로컬 레파지토리에서 연결할 대상이라고 볼 수 있어.</p>
+<p>연결을 했다는 것은 git 명령어(push, pull, fetch)를 통해 연결된 외부 레파지토리에 현재 작업한 로컬 레파지토리의 내용을 반영하거나 혹은 외부 레파지토리의 내용을 가져올 수 있게 되는 것을 뜻해.</p>
+<p>이 원격저장소에 대해 전문적으로 서비스 해주는 녀석이 바로 Git hub야.</p>
+<p>자신이 직접 저장소를 만들어서 관리할 수도 있어!! </p>
+<span id="more"></span>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init —bare</span><br></pre></td></tr></table></figure>
+
+<p>위 명령어를 사용하면 돼!! 위 명령어는 working directory 즉 작업공간을 만드는 것이 아닌 저장소만을 만들어줘!!</p>
+<p><br><br></p>
+<h2 id="원격-저장소의-원리"><a href="#원격-저장소의-원리" class="headerlink" title="원격 저장소의 원리"></a>원격 저장소의 원리</h2><p>local repository 와 remote repository를 연결하는 아래 명령어를 수행한다면</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin address</span><br></pre></td></tr></table></figure>
+
+<p>.git/config 파일에 아래와 같은 내용이 추가되어져!!</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[remote &quot;origin&quot;]</span><br><span class="line">	url = https://testurl.com</span><br><span class="line">	fetch = +refs/heads/*:refs/remotes/origin/*</span><br></pre></td></tr></table></figure>
+
+<p>origin은 관례적으로 외부 repository에 붙이는 alias라고 생각하면 돼.</p>
+<p><br><br><br><br></p>
+<h1 id="git-pull-vs-git-fetch"><a href="#git-pull-vs-git-fetch" class="headerlink" title="git pull vs git fetch"></a>git pull vs git fetch</h1><p><br><br></p>
+<h2 id="git-pull"><a href="#git-pull" class="headerlink" title="git pull"></a>git pull</h2><p>git pull 명령어를 실행하면 원격저장소의 커밋을 가져와.</p>
+<p>그리고 그렇게 받아온 최신 커밋에 대해 refs/heads/current_branch 가 가리키게 하는거야!!</p>
+<p>그와 동시에 refs/remotes/origin/current_branch 가 가리키게 해.</p>
+<p>즉, refs/heads/current_branch 와 refs/remotes/origin/current_branch 가 가리키는 커밋 내용이 동일하다는 것이야. 이 내용은 현재 자신의 로컬 브랜치의 내용이 원격 브랜치의 내용과 합쳐졌다고 볼 수 있어.</p>
+<p><br><br></p>
+<h2 id="git-fetch"><a href="#git-fetch" class="headerlink" title="git fetch"></a>git fetch</h2><p>git fetch의 경우 pull과 유사하지만 조금 달라. fetch의 경우에는 refs/heads/current_branch의 내용은 변화시키지 않고 refs/remotes/origin/current_branch의 내용을 변화시켜.</p>
+<p>즉 pull과 fetch의 차이는 원격저장소의 내용을 가져와서 병합을 하는지 안하는지의 차이야!! </p>
+<p>병합을 하지 않는다면 가져와서 차이점들을 볼 수 있는 이점을 가질 수 있겠지.</p>
+<p><br><br><br><br></p>
+<h1 id="git-tag"><a href="#git-tag" class="headerlink" title="git tag"></a>git tag</h1><p><br><br></p>
+<h2 id="git-tag란"><a href="#git-tag란" class="headerlink" title="git tag란?"></a>git tag란?</h2><p>tag는 특정 커밋을 고정적으로 가리키는 놈이라고 생각하면 될 것 같애!</p>
+<p>이런 성질을 이용해서 어떤 릴리즈한 버전들에 대해 구분할 때 사용하면 좋겠지! 물론 실제 그렇게 사용하고도 있는거고.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag tag_name</span><br></pre></td></tr></table></figure>
+
+<p>위의 명령어를 통해 간단히 태그를 생성할 수 있어.</p>
+<p>여기서 뭔가 추가적인 정보를 태그에 주고싶다한다면 annotated tag를 사용하면 돼</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a tag_name -m <span class="string">&quot;message&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>위 처럼 사용하면 돼!! tag에 대한 간단한 메시지와 그 외에도 생성한 사람에 대한 정보(author)라던가 기타 정보가 함께 만들어져.</p>
+<p><br><br></p>
+<h2 id="git-tag의-원리"><a href="#git-tag의-원리" class="headerlink" title="git tag의 원리"></a>git tag의 원리</h2><p>git tag 명령어를 실행하게 되면 refs/tags/tag_name 파일이 생성이 돼!</p>
+<img width="312" alt="스크린샷 2022-02-13 오후 11 09 23" src="https://user-images.githubusercontent.com/31160622/153757435-771524ef-2859-4128-a1c6-2dee99334596.png">
+
+
+<p>이렇게 말이야!!</p>
+<p>내용을 봐서 알겠지만 현재 브랜치가 가리키고 있던 commit 내용에 대한 정보를 가지고 있어!!</p>
+<p>즉 저 object id가 결국 특정 커밋에 대한 버전을 지정하려는 의도로 tag 명령어를 사용하였을텐데 그 대상이 되는 커밋 정보라는 거지!!</p>
+<p>annotated tag는 생성되는 정보가 조금 달라.</p>
+<p>이 친구는 objects/ 하위에 특정 오브젝트가 생겨. 그리고 그 오브젝트는 각종 설명(태그 정보, 태그 내용, 누가 만들었는지)와 함께 특정 object id를 내용으로 가지고 있어.</p>
+<p>그리고 저기서 Object id가 버전을 붙이고자하는 커밋에 대한 정보를 가지고 있는거지.</p>
+<p>그 이후에는 위와 동일한데 refs/tags/tag_name 파일이 object/ 하위에 생겼다던 그 오브젝트를 가리키고 있어.</p>
+</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/git/">git</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2022/02/07/git_branch_reset/"><span>git branch와 reset의 원리</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: 'a9fadaa0c71177598341',
+  clientSecret: '677df1a9ceea07288fecd99348d15054f5659172',
+  repo: 'devk0ng.github.io',
+  owner: 'devk0ng',
+  admin: 'devk0ng',
+  id: md5(decodeURI(location.pathname)),
+  language: 'en'
+})
+gitalk.render('gitalk-container')</script></div></div><footer class="footer-bg" style="background-image: url(/img/background2.png)"><div class="layout" id="footer"><div class="copyright">&copy;2021 - 2022 By Sungbin Hong</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="external nofollow noopener noreferrer" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/algolia.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
