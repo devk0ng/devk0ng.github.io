@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-02-13T14:23:01.841Z</updated>
+  <updated>2022-02-14T03:02:37.855Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>커버로스(kerberos) 인증이란</title>
+    <link href="https://devk0ng.github.io/2022/02/14/kerberos/"/>
+    <id>https://devk0ng.github.io/2022/02/14/kerberos/</id>
+    <published>2022-02-14T03:01:13.829Z</published>
+    <updated>2022-02-14T03:02:37.855Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;커버로스-kerberos-인증이란&quot;&gt;&lt;a href=&quot;#커버로스-kerberos-인증이란&quot; class=&quot;headerlink&quot; title=&quot;커버로스(kerberos) 인증이란&quot;&gt;&lt;/a&gt;커버로스(kerberos) 인증이란&lt;/h1&gt;&lt;br/&gt;
+
+&lt;h1 id=&quot;커버로스-인증이란&quot;&gt;&lt;a href=&quot;#커버로스-인증이란&quot; class=&quot;headerlink&quot; title=&quot;커버로스 인증이란?&quot;&gt;&lt;/a&gt;커버로스 인증이란?&lt;/h1&gt;&lt;p&gt;커버로스는 티켓이라는 개념을 기반으로 인증을 하여 안전한 통신을 제공하기 위한 프로토콜이라고 생각하면 될 것 같애. 자세한 과정은 아래에 그림과 함께 그려보도록 하자!&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="authentication" scheme="https://devk0ng.github.io/categories/authentication/"/>
+    
+    
+    <category term="kerberos" scheme="https://devk0ng.github.io/tags/kerberos/"/>
+    
+  </entry>
   
   <entry>
     <title>git pull, fetch, tag의 원리</title>

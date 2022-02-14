@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="커버로스(kerberos) 인증이란"><meta name="keywords" content="kerberos"><meta name="author" content="Sungbin Hong"><meta name="copyright" content="Sungbin Hong"><title>커버로스(kerberos) 인증이란 | devk0ng's blog</title><link rel="shortcut icon" href="/img/icon2.png"><link rel="stylesheet" href="/css/index.css?version=1.9.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.0"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css?version=1.9.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="canonical" href="https://devk0ng.github.io/2022/02/14/kerberos/"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.1/dist/instantsearch.min.js" defer></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css"><script src="https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js"></script><script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.10.0/js/md5.min.js"></script><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-3745226285485669',
+  enable_page_level_ads: 'true'
+});
+</script><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"LK74G203SS","apiKey":"82b60d701a0005a22c7f6e2476b74ac1","indexName":"myblog","hits":{"per_page":10},"languages":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}.","hits_stats":"${hits} results found in ${time} ms"}},
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '5.4.0'
+} </script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="devk0ng's blog" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%BB%A4%EB%B2%84%EB%A1%9C%EC%8A%A4-kerberos-%EC%9D%B8%EC%A6%9D%EC%9D%B4%EB%9E%80"><span class="toc-number">1.</span> <span class="toc-text">커버로스(kerberos) 인증이란</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%BB%A4%EB%B2%84%EB%A1%9C%EC%8A%A4-%EC%9D%B8%EC%A6%9D%EC%9D%B4%EB%9E%80"><span class="toc-number">2.</span> <span class="toc-text">커버로스 인증이란?</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EC%BB%A4%EB%B2%84%EB%A1%9C%EC%8A%A4-%ED%86%B5%EC%8B%A0-%EA%B5%AC%EC%A1%B0"><span class="toc-number">3.</span> <span class="toc-text">커버로스 통신 구조</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%ED%86%B5%EC%8B%A0-%EA%B3%BC%EC%A0%95"><span class="toc-number">4.</span> <span class="toc-text">통신 과정</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="/img/icon2.png"></div><div class="author-info__name text-center">Sungbin Hong</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">36</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">35</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">13</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(/img/background2.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">devk0ng's blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">커버로스(kerberos) 인증이란</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-02-14</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/authentication/">authentication</a></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="커버로스-kerberos-인증이란"><a href="#커버로스-kerberos-인증이란" class="headerlink" title="커버로스(kerberos) 인증이란"></a>커버로스(kerberos) 인증이란</h1><br>
+
+<h1 id="커버로스-인증이란"><a href="#커버로스-인증이란" class="headerlink" title="커버로스 인증이란?"></a>커버로스 인증이란?</h1><p>커버로스는 티켓이라는 개념을 기반으로 인증을 하여 안전한 통신을 제공하기 위한 프로토콜이라고 생각하면 될 것 같애. 자세한 과정은 아래에 그림과 함께 그려보도록 하자!</p>
+<span id="more"></span>
+<p><br><br><br></p>
+<h1 id="커버로스-통신-구조"><a href="#커버로스-통신-구조" class="headerlink" title="커버로스 통신 구조"></a>커버로스 통신 구조</h1><ul>
+<li>KDC (Key Distributjion Center) : 그 의미 그대로 키를 분배하는 센터라고 이해하면 될 것 같애. 이 키를 통해 암호화, 복호화를 진행하겠지.<ul>
+<li>AS (Authentication Server) : 해당 방식에서는 인증을 진행할 때 믿을 수 있는 제 3의 시스템을 통해 진행을 하는데 그 녀석이 AS라고 일단은 생각하면 될 것 같다</li>
+<li>TGS (Ticket Granting Server) : 위에서 커버로스가 티켓을 기반으로 인증을 진행한다 하였는데 그 티켓을 발급해주는 녀석이야.</li>
+</ul>
+</li>
+<li>Client</li>
+<li>Server</li>
+</ul>
+<p><br><br><br></p>
+<h1 id="통신-과정"><a href="#통신-과정" class="headerlink" title="통신 과정"></a>통신 과정</h1><img src="https://user-images.githubusercontent.com/31160622/153792871-5f7c57c4-f703-4a5c-8188-c8e43a1c5b74.png">
+
+
+
+<ol>
+<li>먼저 서비스 사용을 위한 요청을 AS에게 보내. 이 요청에는 Client의 id와 같은 식별할 수 있는 정보가 있겠찌. (이 요청은 AS와 공유하고있는 shared key를(=password) 이용해 암호화해서 보내)</li>
+<li>AS 에서는 클라이언트가 보내온 정보(userId)를 바탕으로 유저가 존재하는지 검증 후 존재한다면 Client에게 TGT(Ticket Granting Ticket)을 넘겨줘. 이때 TGT 정보는 또 다른 secret key로 암호화해서 보내줘.</li>
+<li>클라이언트는 받은 TGT를 TGS(Ticket Granting Server)에 보내.</li>
+<li>TGS는 아까 AS가 TGT정보를 암호화할 때 사용한 키에 대해 복호화할 수 있는 키를 가지고 있어. 그래서 복호화 후 확인이 된다면 Client에게 Token을 반환해줘. 이때 이 Token은 통신하고자하는 Server 측에서 가지고 있는 (복호화할 수 있는) 키와 매칭되는 키로 암호화해서 보내줘</li>
+<li>클라이언트는 이렇게 받은 Token을 가지고 Server 와 통신을 할 수 있게 되어져. 이 Token을 암호화하고 있는 키에 대해서는 Server에서 복호화할 수 있는 키를 가지고있다 했지. </li>
+</ol>
+<p><br><br><br><br><br><br></p>
+<blockquote>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.youtube.com/watch?v=_44CHD3Vx-0">https://www.youtube.com/watch?v=_44CHD3Vx-0</a></p>
+</blockquote>
+</div></article><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/kerberos/">kerberos</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2022/02/13/git_fetch_pull_tag/"><span>git pull, fetch, tag의 원리</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="gitalk-container"></div><script>var gitalk = new Gitalk({
+  clientID: 'a9fadaa0c71177598341',
+  clientSecret: '677df1a9ceea07288fecd99348d15054f5659172',
+  repo: 'devk0ng.github.io',
+  owner: 'devk0ng',
+  admin: 'devk0ng',
+  id: md5(decodeURI(location.pathname)),
+  language: 'en'
+})
+gitalk.render('gitalk-container')</script></div></div><footer class="footer-bg" style="background-image: url(/img/background2.png)"><div class="layout" id="footer"><div class="copyright">&copy;2021 - 2022 By Sungbin Hong</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="external nofollow noopener noreferrer" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.0"></script><script src="/js/fancybox.js?version=1.9.0"></script><script src="/js/sidebar.js?version=1.9.0"></script><script src="/js/copy.js?version=1.9.0"></script><script src="/js/fireworks.js?version=1.9.0"></script><script src="/js/transition.js?version=1.9.0"></script><script src="/js/scroll.js?version=1.9.0"></script><script src="/js/head.js?version=1.9.0"></script><script src="/js/search/algolia.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
