@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-02-14T03:02:37.855Z</updated>
+  <updated>2022-02-15T16:10:01.015Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ansible이란?</title>
+    <link href="https://devk0ng.github.io/2022/02/16/ansible/"/>
+    <id>https://devk0ng.github.io/2022/02/16/ansible/</id>
+    <published>2022-02-15T16:08:33.309Z</published>
+    <updated>2022-02-15T16:10:01.015Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Ansible-이란&quot;&gt;&lt;a href=&quot;#Ansible-이란&quot; class=&quot;headerlink&quot; title=&quot;Ansible 이란?&quot;&gt;&lt;/a&gt;Ansible 이란?&lt;/h1&gt;&lt;p&gt;기존엔 프로그램이 돌아가기 위한 실행환경을 만드는 데에 쉘 스크립트를 일반적으로 사용했어.&lt;/p&gt;
+&lt;p&gt;쉘 스크립트에 설치하고자하는 패키지나 혹은 그 외 다른 명령어들의 나열을 통해 원하고자 하는 실행흐름을 만들었지.&lt;/p&gt;
+&lt;p&gt;하지만 요즈음 여러 기술들의 발전과 함께 관리해야하는 서버의 숫자가 급격하게 증가하고 있어.&lt;/p&gt;
+&lt;p&gt;이러한 상황속에서 단순 쉘 스크립트만으로는 관리하기에 어려운 상황인거지.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="deploy" scheme="https://devk0ng.github.io/categories/deploy/"/>
+    
+    
+    <category term="ansible" scheme="https://devk0ng.github.io/tags/ansible/"/>
+    
+  </entry>
   
   <entry>
     <title>커버로스(kerberos) 인증이란</title>
