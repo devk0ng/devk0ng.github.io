@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-02-15T16:10:01.015Z</updated>
+  <updated>2022-02-20T17:12:06.627Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>queryDSL 기초 (조회, 정렬, 페이징, 집합)</title>
+    <link href="https://devk0ng.github.io/2022/02/21/queryDSL-1/"/>
+    <id>https://devk0ng.github.io/2022/02/21/queryDSL-1/</id>
+    <published>2022-02-20T17:10:35.007Z</published>
+    <updated>2022-02-20T17:12:06.627Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;queryDSL-시작전&quot;&gt;&lt;a href=&quot;#queryDSL-시작전&quot; class=&quot;headerlink&quot; title=&quot;queryDSL 시작전&quot;&gt;&lt;/a&gt;queryDSL 시작전&lt;/h1&gt;&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&quot;간단한-원리&quot;&gt;&lt;a href=&quot;#간단한-원리&quot; class=&quot;headerlink&quot; title=&quot;간단한 원리&quot;&gt;&lt;/a&gt;간단한 원리&lt;/h2&gt;&lt;p&gt;: 앞으로 어떻게 queryDSL을 이용해 쿼리를 작성하는 지에 대해 아주 간단하게 적어보자.&lt;/p&gt;
+&lt;p&gt; 우선 당연 사용하기 위해선 관련 의존성을 가져와야겠지.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="queryDSL" scheme="https://devk0ng.github.io/categories/queryDSL/"/>
+    
+    
+    <category term="queryDSL" scheme="https://devk0ng.github.io/tags/queryDSL/"/>
+    
+  </entry>
   
   <entry>
     <title>ansible이란?</title>
