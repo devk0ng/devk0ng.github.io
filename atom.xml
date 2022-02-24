@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-02-24T16:28:03.555Z</updated>
+  <updated>2022-02-24T16:35:44.937Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -21,15 +21,12 @@
     <link href="https://devk0ng.github.io/2022/02/25/queryDSL-2/"/>
     <id>https://devk0ng.github.io/2022/02/25/queryDSL-2/</id>
     <published>2022-02-24T16:27:09.308Z</published>
-    <updated>2022-02-24T16:28:03.555Z</updated>
+    <updated>2022-02-24T16:35:44.937Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;queryDSL-기초-조인-서브쿼리-case-상수&quot;&gt;&lt;a href=&quot;#queryDSL-기초-조인-서브쿼리-case-상수&quot; class=&quot;headerlink&quot; title=&quot;queryDSL 기초(조인, 서브쿼리, case, 상수)&quot;&gt;&lt;/a&gt;queryDSL 기초(조인, 서브쿼리, case, 상수)&lt;/h1&gt;&lt;h1 id=&quot;조인&quot;&gt;&lt;a href=&quot;#조인&quot; class=&quot;headerlink&quot; title=&quot;조인&quot;&gt;&lt;/a&gt;조인&lt;/h1&gt;&lt;h2 id=&quot;기본-조인&quot;&gt;&lt;a href=&quot;#기본-조인&quot; class=&quot;headerlink&quot; title=&quot;기본 조인&quot;&gt;&lt;/a&gt;기본 조인&lt;/h2&gt;&lt;br/&gt;
 
-&lt;h3 id=&quot;사용방법&quot;&gt;&lt;a href=&quot;#사용방법&quot; class=&quot;headerlink&quot; title=&quot;사용방법&quot;&gt;&lt;/a&gt;사용방법&lt;/h3&gt;&lt;p&gt;join( 조인할 대상, 별칭으로 사용할 Q Type)&lt;/p&gt;
-&lt;br/&gt;
-
-&lt;h3 id=&quot;예시&quot;&gt;&lt;a href=&quot;#예시&quot; class=&quot;headerlink&quot; title=&quot;예시&quot;&gt;&lt;/a&gt;예시&lt;/h3&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//member와 team의 QType static import한 상태&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;List&amp;lt;Member&amp;gt; result = queryFactory&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              .selectFrom(member)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              .join(member.team, team)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              .where(team.name.eq(&lt;span class=&quot;string&quot;&gt;&amp;quot;teamA&amp;quot;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;              .fetch();&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+&lt;h3 id=&quot;사용방법&quot;&gt;&lt;a href=&quot;#사용방법&quot; class=&quot;headerlink&quot; title=&quot;사용방법&quot;&gt;&lt;/a&gt;사용방법&lt;/h3&gt;&lt;p&gt;join( 조인할 대상, 별칭으로 사용할 Q Type)&lt;/p&gt;</summary>
     
     
     
