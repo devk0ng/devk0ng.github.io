@@ -6,7 +6,7 @@
   <link href="https://devk0ng.github.io/atom.xml" rel="self"/>
   
   <link href="https://devk0ng.github.io/"/>
-  <updated>2022-02-24T16:35:44.937Z</updated>
+  <updated>2022-07-06T17:07:16.869Z</updated>
   <id>https://devk0ng.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Zero-base Clean Code 강의 후기</title>
+    <link href="https://devk0ng.github.io/2022/07/07/clean_code_lecture/"/>
+    <id>https://devk0ng.github.io/2022/07/07/clean_code_lecture/</id>
+    <published>2022-07-06T16:35:03.721Z</published>
+    <updated>2022-07-06T17:07:16.869Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Zero-base-클린코드-강의-후기&quot;&gt;&lt;a href=&quot;#Zero-base-클린코드-강의-후기&quot; class=&quot;headerlink&quot; title=&quot;Zero-base 클린코드 강의 후기&quot;&gt;&lt;/a&gt;Zero-base 클린코드 강의 후기&lt;/h1&gt;&lt;p&gt;해당 글은 제로베이스로부터 강의를 제공 받아 작성된 후기입니다!&lt;/p&gt;
+&lt;p&gt;&lt;br/&gt;&lt;br/&gt;&lt;/p&gt;
+&lt;h2 id=&quot;클린코드-강의를-접하게-된-계기&quot;&gt;&lt;a href=&quot;#클린코드-강의를-접하게-된-계기&quot; class=&quot;headerlink&quot; title=&quot;클린코드 강의를 접하게 된 계기&quot;&gt;&lt;/a&gt;클린코드 강의를 접하게 된 계기&lt;/h2&gt;&lt;p&gt; : Yapp이라는 IT동아리에서 현재 활동하고 있습니다. Zero-base에서 Yapp 동아리 회원들에게 클린코드 스터디를 지원해주어 좋은 기회로 강의를 수강할 수 있게 되었습니다.&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="clean code" scheme="https://devk0ng.github.io/categories/clean-code/"/>
+    
+    
+    <category term="java" scheme="https://devk0ng.github.io/tags/java/"/>
+    
+    <category term="clean code" scheme="https://devk0ng.github.io/tags/clean-code/"/>
+    
+  </entry>
   
   <entry>
     <title>queryDSL 기초(조인, 서브쿼리, case, 상수)</title>

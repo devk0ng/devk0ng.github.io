@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/clean-code/</loc>
+        <lastmod>2022-07-06T17:07:16.869Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/java/</loc>
+        <lastmod>2022-07-06T17:07:16.869Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/queryDSL/</loc>
+        <lastmod>2022-02-24T16:35:44.937Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/ansible/</loc>
+        <lastmod>2022-02-15T16:10:01.015Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/kerberos/</loc>
+        <lastmod>2022-02-14T03:02:37.855Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/git/</loc>
+        <lastmod>2022-02-13T14:23:01.841Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/rest/</loc>
+        <lastmod>2022-01-25T17:04:53.384Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/interceptors/</loc>
+        <lastmod>2022-01-21T01:53:45.292Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/spring-wev-mvc/</loc>
+        <lastmod>2022-01-21T01:53:45.292Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/spring/</loc>
+        <lastmod>2022-01-21T01:53:45.292Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/javascript/</loc>
+        <lastmod>2022-01-20T04:49:11.311Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/spring-data-jpa/</loc>
+        <lastmod>2021-10-31T17:11:16.199Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/orm/</loc>
+        <lastmod>2021-10-31T17:11:16.199Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/jpa/</loc>
+        <lastmod>2021-10-31T17:11:16.199Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/mst/</loc>
+        <lastmod>2021-10-25T17:42:10.684Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/search/</loc>
+        <lastmod>2021-10-25T17:42:10.684Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/algorithm/</loc>
+        <lastmod>2021-10-25T17:42:10.684Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/data-structure/</loc>
+        <lastmod>2021-10-24T15:55:31.133Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/sorting/</loc>
+        <lastmod>2021-10-23T13:25:03.675Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/circuit-breaker/</loc>
+        <lastmod>2021-08-16T08:10:53.933Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/msa/</loc>
+        <lastmod>2021-08-16T08:10:53.933Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/lombok/</loc>
+        <lastmod>2021-07-29T16:42:33.478Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/solid/</loc>
+        <lastmod>2021-07-29T16:34:38.683Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/polymorphism/</loc>
+        <lastmod>2021-07-29T16:34:38.683Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/entity/</loc>
+        <lastmod>2021-07-28T15:53:22.666Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/cqrs/</loc>
+        <lastmod>2021-07-28T14:23:38.120Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/2-phase-commit/</loc>
+        <lastmod>2021-07-28T13:48:09.414Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/2pc/</loc>
+        <lastmod>2021-07-28T13:48:09.414Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/saga/</loc>
+        <lastmod>2021-07-28T13:48:09.414Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/saga-pattern/</loc>
+        <lastmod>2021-07-28T13:48:09.414Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/persistence-context/</loc>
+        <lastmod>2021-07-28T13:44:49.978Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/persistence/</loc>
+        <lastmod>2021-07-28T13:44:49.978Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/api-gateway/</loc>
+        <lastmod>2021-07-28T13:29:59.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/gateway/</loc>
+        <lastmod>2021-07-28T13:29:59.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/API-Composition/</loc>
+        <lastmod>2021-07-27T16:07:45.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/composition/</loc>
+        <lastmod>2021-07-27T16:07:45.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://devk0ng.github.io/tags/api/</loc>
+        <lastmod>2021-07-27T16:07:45.103Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->
